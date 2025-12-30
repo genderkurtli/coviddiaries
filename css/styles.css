@@ -46,15 +46,12 @@ body {
                 │    │    └────── Unten
                 │    └─────────── Rechts
                 └──────────────── Oben */
-    padding-left: 50%; /*löschen, wenn die buttons und der Text ganz links sein sollen*/  
-    padding-bottom: 30vh; /* ← NEU! 50% Bildschirmhöhe padding-bottom: 60%; */  /* 60% vom Parent */      
+    /* padding-left: 50%; */ /* GELÖSCHT - Buttons nach rechts mit justify-content statt padding! */
+    padding-bottom: 60vh; /* ← Größer! Bild sichtbar bei großem Bildschirm. War 30vh */      
     box-shadow: 0 0px 0px rgba(0,0,3); /*unsichtbar, da 0px gross*/
-    border-bottom: 0px solid; /*auch möglich statt 'solid': `sticky` | **Klebt** ab bestimmter Position |
-| `fixed` | **Immer** an gleicher Stelle (auch beim Scrollen) |
-| `relative` | Verschiebbar, aber Platz bleibt reserviert |
-| `absolute` | Frei positionierbar, kein Platz reserviert |*/
+    border-bottom: 0px solid;
 
-    position: solid;
+    position: static;  /* War "solid" - das ist falsch! */
     top: 0;
     z-index: 100;
 }
@@ -67,19 +64,14 @@ h1 {
 }
 
 .info-bar {/*12th May 164 diaries Source MOA*/
-    display: flex; /*inline = Displays an element as an inline element; block = Displays an element as a block element
-contents=Makes the container disappear, making its child elements children of the element the next level up in the DOM
-flex=Displays an element as a block-level flex container
-grid=Displays an element as a block-level grid container
-inline-block=Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height, width, padding, and margin values
-none=The element is completely hidden from the document flow (does not take up any space). */
+    display: flex;
     gap: 10px; /*Abstand zwischen Elementen der infobar*/
     align-items: center; /*Vertikale Ausrichtung: Alle Elemente mittig in der Höhe, auch wenn eins höher ist als andere*/
     flex-wrap: wrap; /*Umbruch erlaubt*/
-    margin-bottom: 20%; /*Abstand nach unten (zu Keywords), kann auch in px angegeben werden, dann fix, aber für grossen Bildschirm verschwindet Bild*/
- margin-top: 20vh;      /* NEU - Buttons tiefer */
- justify-content: flex-end;
-    padding-right: 5%;
+    margin-bottom: 3%; /* ← Kleiner! Nur Abstand zu Keywords. War 20% */
+    margin-top: 25vh; /* Buttons tiefer im Bild */
+    justify-content: flex-end; /* Nach rechts */
+    padding-right: 5%; /* Abstand vom Rand */
 }
 
 .stat {
@@ -94,6 +86,8 @@ none=The element is completely hidden from the document flow (does not take up a
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 10px; /*10px zur nächsten Controls-Zeile*/
+    justify-content: flex-end; /* ← NEU! Buttons nach rechts */
+    padding-right: 5%; /* ← NEU! Abstand vom Rand */
 }
 
 .filter-label {
