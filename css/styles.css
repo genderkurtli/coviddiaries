@@ -1,0 +1,354 @@
+/* ═══════════════════════════════════════════════════════════════════
+   STYLES.CSS - Alle Styles für COVID Diaries
+   
+   STRUKTUR:
+   1. Reset & Basics
+   2. Header & Controls
+   3. Buttons
+   4. Diary Grid & Columns
+   5. Diary Cards
+   6. Extract View
+   7. Responsive
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══ 1. RESET & BASICS ═══ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-color: #deb6a0;
+    color: #1a202c;
+}
+
+/* ═══ 2. HEADER & CONTROLS ═══ */
+
+.header {
+    background: rgba(247, 229, 215, 0);
+                           /*│  │  │  │
+                             │  │  │  └─ Alpha (Transparenz 1=100% undurchsichtig, 0,5 = halbtransparent)
+                        │  │  └──── Blue (Blau)
+                        │  └─────── Green (Grün)
+                        └────────── Red (Rot)*/
+    padding: 20px 10px 0px 10px;
+            /*       ^^   ^^   ^^   ^^
+                │    │    │    └─ Links
+                │    │    └────── Unten
+                │    └─────────── Rechts
+                └──────────────── Oben */
+    padding-left: 50%; /*löschen, wenn die buttons und der Text ganz links sein sollen*/  
+    padding-bottom: 30vh; /* ← NEU! 50% Bildschirmhöhe padding-bottom: 60%; */  /* 60% vom Parent */      
+    box-shadow: 0 0px 0px rgba(0,0,3); /*unsichtbar, da 0px gross*/
+    border-bottom: 0px solid; /*auch möglich statt 'solid': `sticky` | **Klebt** ab bestimmter Position |
+| `fixed` | **Immer** an gleicher Stelle (auch beim Scrollen) |
+| `relative` | Verschiebbar, aber Platz bleibt reserviert |
+| `absolute` | Frei positionierbar, kein Platz reserviert |*/
+
+    position: solid;
+    top: 0;
+    z-index: 100;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+    font-size: 56px;
+    color: #2d3748;
+    font-weight: 900;
+}
+
+.info-bar {/*12th May 164 diaries Source MOA*/
+    display: flex; /*inline = Displays an element as an inline element; block = Displays an element as a block element
+contents=Makes the container disappear, making its child elements children of the element the next level up in the DOM
+flex=Displays an element as a block-level flex container
+grid=Displays an element as a block-level grid container
+inline-block=Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height, width, padding, and margin values
+none=The element is completely hidden from the document flow (does not take up any space). */
+    gap: 10px; /*Abstand zwischen Elementen der infobar*/
+    align-items: center; /*Vertikale Ausrichtung: Alle Elemente mittig in der Höhe, auch wenn eins höher ist als andere*/
+    flex-wrap: wrap; /*Umbruch erlaubt*/
+    margin-bottom: 20%; /*Abstand nach unten (zu Keywords), kann auch in px angegeben werden, dann fix, aber für grossen Bildschirm verschwindet Bild*/
+ margin-top: 20vh;      /* NEU - Buttons tiefer */
+ justify-content: flex-end;
+    padding-right: 5%;
+}
+
+.stat {
+    font-size: 14px;
+    color: #f6e3d7;
+    font-weight: 600; /*400=normal, 600=etwas fett, 700=fett*/
+}
+
+.controls {/*Jede Zeile mit Buttons (Keywords, Cohorts, Tags)*/
+    display: flex;
+    gap: 20px; /*zwischen Element und button*/
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /*10px zur nächsten Controls-Zeile*/
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f6e3d7;
+}
+#keywordButtons,
+#cohortButtons,
+#tagButtons {
+    display: flex;
+    gap: 8px;           /* Abstand zwischen Buttons */
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ═══ 3. BUTTONS ═══ */
+
+button {/*alle anderen buttons, z.B. Zurück zu allen Diaries*/
+    background: #BF2A45;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px; /*wie rund die buttons sind -> je grösser die Zahl, desto runder*/
+    cursor: pointer;/*Mauszeiger wird zu Hand, damit man sieht, dass man klicken kann*/
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #a02338; /*Farbe, die der Button erhält, wenn man darüberfährt*/
+    transform: translateY(-2px); /***Verschiebt nach oben:** 2px hoch, Button "hebt sich"*/
+}
+
+/* Filter Buttons = Keywords und Cohorts*/
+.filter-btn {
+    background: #BF2A45;/*Farbe des Buttons*/
+    color: #f6e3d7;/*Schriftfarbe*/
+    border: 0px solid #cbd5e0;/*Rand 0px= kein Rand, auch "none" würde gehen*/
+}
+
+.filter-btn:hover {
+    border-color: #e2e5eb;
+    background: #4a5568;
+}
+
+.filter-btn.active { /*Einstellungen wenn ein Filterbutton aktiv ist*/
+    background: #2e2f30;
+    color: white;
+    border-color: #2e2f30;
+}
+
+/* Tag Buttons */
+.tag-btn {
+    background: white;
+    color: #718096;
+    border: 2px solid #cbd5e0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Back Button */
+.back-btn {
+    background: #e53e3e;
+    margin-bottom: 20px;
+}
+
+.back-btn:hover {
+    background: #c53030;
+}
+
+/* ═══ 4. DIARY GRID & COLUMNS ═══ */
+
+.diary-grid {
+    /*display: flex;
+    gap: 7px;
+    padding: 7px;
+    align-items: flex-start;
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    transition: transform 0.3s ease;*/
+    display: flex;
+    flex-direction: row;  /* ← NEU! Untereinander */
+    gap: 7px;
+    padding: 7px;
+    align-items: flex-start;
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* Dynamische Spaltenbreite */
+.diary-grid.few-columns .cohort-column {
+    max-width: 800px;
+    flex: 1;
+}
+
+.diary-grid.many-columns .cohort-column {
+    max-width: 400px;
+    flex: 1;
+}
+
+.cohort-column {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.cohort-header {
+    position: sticky;
+    top: 0;
+    background: #f7e5d7;
+    padding: 7px;
+    border-radius: 8px 8px 8px 8px; /*Form der Überschrift-Kästchen*/
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 4px solid;
+}
+
+/* ═══ 5. DIARY CARDS ═══ */
+
+.diary-entry {
+    background: white;
+    border-radius: 8px;
+    padding: 7px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid;
+    transition: all 0.3s;
+}
+
+.diary-entry:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+}
+
+.diary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.diary-id {
+    font-size: 12px;
+    font-weight: regular;
+    color: #2d3748;
+}
+
+.diary-meta {
+    font-size: 12px;
+    color: #718096;
+    font-weight: 600;
+}
+
+.diary-text {
+    font-size: 8px;
+    line-height: 1.7;
+    color: #2d3748;
+}
+
+.diary-text p {
+    margin-bottom: 8px;
+}
+
+/* Highlights */
+.tag-highlight {
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.keyword-highlight {
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* ═══ 6. EXTRACT VIEW ═══ */
+
+.extract-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.extract-tag-section {
+    margin-bottom: 40px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.extract-tag-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid;
+}
+
+.extract-passage {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 6px;
+    border-left: 4px solid;
+}
+
+.extract-meta {
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.extract-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+/* ═══ 7. RESPONSIVE ═══ 
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+    
+    .diary-grid {
+        flex-direction: column;
+    }
+    
+    .cohort-column {
+        min-width: 100%;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}*/

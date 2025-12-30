@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <title>COVID DIARIES • 12th may 2020</title>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- D3.js Library für Animationen -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body> this is a project of HKB</body>
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- HEADER                                                           -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <header class="header">
+       <!--  <h1>COVID DIARIES</h1> TITEL ausgeblendet, da auskommentiert*/-->
+        
+        <div class="info-bar">
+            <span class="stat"> 12th May 2020</span>
+            <span class="stat"> <span id="diaryCount">164</span> diaries</span>
+            <span class="stat"> Source: Mass Observation Archive</span>
+        </div>
+        
+        <!-- Controls 
+        <div class="controls">
+            Zoom
+            <button onclick="zoomIn()">🔍 Zoom +</button>
+            <button onclick="zoomOut()">🔍 Zoom -</button>
+            <span class="stat">Zoom: <span id="zoomLevel">100%</span></span>
+        </div>-->
+        
+        <!-- Keyword Filters -->
+        <div class="controls">
+            <span class="filter-label"> Keywords:</span>
+            <div id="keywordButtons"></div>
+        </div>
+        
+       
+        
+        <!-- Tag Filters -->
+        <div class="controls">
+            <span class="filter-label"> Tags:</span>
+            <div id="tagButtons"></div>
+        </div>
+         <!-- Cohort Filters -->
+        <div class="controls">
+            <span class="filter-label"> Cohorts:</span>
+            <div id="cohortButtons"></div>
+        </div>
+    </header>
+    
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- MAIN CONTENT                                                     -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <main id="diaryContainer" class="diary-grid">
+        <!-- Diaries werden hier von JavaScript eingefügt -->
+    </main>
+    
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- JAVASCRIPT - In dieser Reihenfolge laden!                        -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    
+    <!-- 1. Konfiguration (Farben, Keywords) -->
+    <script src="js/config.js"></script>
+    
+    <!-- 2. Daten laden -->
+    <script src="js/data-loader.js"></script>
+    
+    <!-- 3. Diaries rendern -->
+    <script src="js/render-diaries.js"></script>
+    
+    <!-- 4. Interaktionen (Filter, Zoom) -->
+    <script src="js/interactions.js"></script>
+    
+    <!-- 5. Animation (später aktivieren) -->
+    <script src="js/animate-tags.js"></script>
+</body>
+</html>
