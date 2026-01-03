@@ -76,12 +76,32 @@ function renderCohortButtons() {
     
     // Cohort Buttons
     cohorts.forEach(cohort => {
-        const btn = createButton(cohort, currentState.selectedCohort === cohort);
+        const color = cohortColors[cohort] || '#cbd5e0';
+        const isActive = currentState.selectedCohort === cohort;
+        
+        const btn = createButton(cohort, isActive);
         btn.onclick = () => {
             currentState.selectedCohort = cohort;
             renderCohortButtons();
             renderDiaries();
         };
+        
+        // ← HOVER mit Farbe:
+        btn.onmouseenter = () => {
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
+        };
+        
+        btn.onmouseleave = () => {
+            if (isActive) {
+                btn.style.backgroundColor = '#2e2f30';
+                btn.style.color = 'white';
+            } else {
+                btn.style.backgroundColor = '#BF2A45';
+                btn.style.color = '#f6e3d7';
+            }
+        };
+        
         container.appendChild(btn);
     });
 }
