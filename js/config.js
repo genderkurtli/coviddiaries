@@ -38,7 +38,7 @@ const tagColors = {
 const keywordThemes = {
     'lockdown': {
         color: '#e8cb81ff',
-        keywords: ['lockdown', 'locked', 'shutdown', 'quarantine','home'],
+        keywords: ['lockdown', 'stay home','locked', 'shutdown', 'quarantine','home', 'stay home'],
         label: 'lockdown'
     },
     'relations': {
@@ -48,12 +48,12 @@ const keywordThemes = {
     },
     'bad feelings': {
         color: '#8e6c6cff',
-        keywords: ['fear', 'worried','worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult'],
+        keywords: ['fear', 'grief', 'guilt','worried','worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult'],
         label: 'bad feelings'
     },
     'good feelings': {
         color: '#5fab92ff',
-        keywords: ['hope', 'hopeful', 'optimis', 'positive', 'better', 'loveley','lucky','fun', 'pretty','happy', ],
+        keywords: ['hope', 'grattitude','hopeful', 'optimis', 'positive', 'better', 'loveley','lucky','fun', 'pretty','happy', ],
         label: 'good feelings'
     },
     'isolation': {
@@ -68,7 +68,7 @@ const keywordThemes = {
     },
     'work': {
         color: '#95e1d3',
-        keywords: ['work', 'working', 'lesson','job', 'study', 'employment', 'remote', 'university', 'home office', 'school', 'math', 'english', 'home school', 'study', 'studying', 'college'],
+        keywords: ['work', 'working', 'lesson','job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'study', 'studying', 'college'],
         label: 'work'
      },
      'food': {
@@ -83,12 +83,12 @@ const keywordThemes = {
          },
     'pandemic': {
         color: '#8da278ff',
-        keywords: ['pandemic', 'virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease'],
+        keywords: ['pandemic', 'funeral','virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease'],
         label: 'pandemic'
 },
 'activities': {
         color: '#9ea1bdff',
-        keywords: ['reading','writing','exercise', 'yoga','shopping' ],
+        keywords: ['reading','writing','exercise', 'yoga','shopping','walking' ],
         label: 'activities'
 },
 'spaces': {
