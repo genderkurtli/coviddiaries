@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"="width=device-width, initial-scale=1.0">
-    <title>COVID DIARIES • 12th may 2020</title>
+    <title>COVID DIARIES • 12th May 2020</title>
     
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
@@ -13,49 +13,50 @@
 </head>
 <body>
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- HEADER                                                           -->
+    <!-- HEADER CONTAINER                                                -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <header class="header">
-       <!--  <h1>COVID DIARIES</h1> TITEL ausgeblendet, da auskommentiert*/-->
-        
+    <div id="headerContainer" style="border: 5px; border-style: solid;">      
         <div class="info-bar">
-            <span class="stat"> 12th May 2020</span>
-            <span class="stat"> <span id="diaryCount">164</span> diaries</span>
-            <span class="stat"> Source: Mass Observation Archive</span>
+            12th May 2020 <span id="diaryCount">COUNT</span> diaries Source: Mass Observation Archive
         </div>
-        
-        <!-- Controls 
-        <div class="controls">
-            Zoom
-            <button onclick="zoomIn()">🔍 Zoom +</button>
-            <button onclick="zoomOut()">🔍 Zoom -</button>
-            <span class="stat">Zoom: <span id="zoomLevel">100%</span></span>
-        </div>-->
-        
+
+        <div class="text-container">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+            diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+            sanctus est Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- FILTER CONTAINER                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->  
+    <div id="filterContainer" style="border: 5px; border-style: solid;">
         <!-- Keyword Filters -->
         <div class="controls">
-            <span class="filter-label"> Keywords:</span>
+            <span class="filter-label">Keywords</span>
             <div id="keywordButtons"></div>
         </div>
-        
-       
-        
+
         <!-- Tag Filters -->
         <div class="controls">
-            <span class="filter-label"> Tags:</span>
+            <span class="filter-label">Tags</span>
             <div id="tagButtons"></div>
         </div>
-         <!-- Cohort Filters -->
+
+        <!-- Cohort Filters -->
         <div class="controls">
-            <span class="filter-label"> Cohorts:</span>
+            <span class="filter-label">Cohorts</span>
             <div id="cohortButtons"></div>
         </div>
-    </header>
+    </div>
     
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- MAIN CONTENT                                                     -->
+    <!-- MAIN CONTENT                                                    -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <main id="diaryContainer" class="diary-grid">
+    <main id="diaryContainer" class="diary-grid" style="border: 5px; border-style: solid;">
         <!-- Diaries werden hier von JavaScript eingefügt -->
     </main>
     

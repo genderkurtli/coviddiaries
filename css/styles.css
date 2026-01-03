@@ -22,38 +22,44 @@
 body {
     margin: 0;
     font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-image: url('../images/background.jpg');
     background-size: 100% auto;
-    background-position: center top;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
     background-color: #deb6a0;
     color: #1a202c;
 }
 
+.drawing-layer {
+    position: fixed;  /* Schwebt über allem */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* Klicks gehen durch! */
+    z-index: 999;  /* Ganz oben */
+}
+.text-container {
+    display: block;          /* Eigene Zeile */
+    margin-top: 15px;        /* Abstand nach oben */
+    padding-left: 70%;       /* Schiebt ganzen Container */
+    text-align: right;       /* Text rechtsbündig */
+}
+
+
+
 /* ═══ 2. HEADER & CONTROLS ═══ */
 
-.header {
-    background: rgba(247, 229, 215, 0);
-                           /*│  │  │  │
-                             │  │  │  └─ Alpha (Transparenz 1=100% undurchsichtig, 0,5 = halbtransparent)
-                        │  │  └──── Blue (Blau)
-                        │  └─────── Green (Grün)
-                        └────────── Red (Rot)*/
-    padding: 20px 10px 0px 10px;
-            /*       ^^   ^^   ^^   ^^
-                │    │    │    └─ Links
-                │    │    └────── Unten
-                │    └─────────── Rechts
-                └──────────────── Oben */
-    /* padding-left: 50%; */ /* GELÖSCHT - Buttons nach rechts mit justify-content statt padding! */
-    padding-bottom: 60vh; /* ← Größer! Bild sichtbar bei großem Bildschirm. War 30vh */      
-    box-shadow: 0 0px 0px rgba(0,0,3); /*unsichtbar, da 0px gross*/
-    border-bottom: 0px solid;
-
-    position: static;  /* War "solid" - das ist falsch! */
-    top: 0;
-    z-index: 100;
+#headerContainer {
+    border: 5px;
+    border-style: solid;
+    margin-bottom: 1em;
+    padding-right: 5%;
+    background-image: url('../images/background.jpg');
+    background-size: 100% auto;
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: red;
+    color: #f6e3d7;
+    min-height: 400px;
 }
 
 h1 {
@@ -63,15 +69,15 @@ h1 {
     font-weight: 900;
 }
 
-.info-bar {/*12th May 164 diaries Source MOA*/
+.info-bar {/* Text: 12th May 164 diaries Source MOA*/
     display: flex;
     gap: 10px; /*Abstand zwischen Elementen der infobar*/
     align-items: center; /*Vertikale Ausrichtung: Alle Elemente mittig in der Höhe, auch wenn eins höher ist als andere*/
     flex-wrap: wrap; /*Umbruch erlaubt*/
-    margin-bottom: 3%; /* ← Kleiner! Nur Abstand zu Keywords. War 20% */
-    margin-top: 25vh; /* Buttons tiefer im Bild */
-    justify-content: flex-end; /* Nach rechts */
-    padding-right: 5%; /* Abstand vom Rand */
+    margin-bottom: 1%; 
+    margin-top: 15px; 
+    justify-content: flex-end;
+    font-weight: bold;
 }
 
 .stat {
@@ -81,11 +87,12 @@ h1 {
 }
 
 .controls {/*Jede Zeile mit Buttons (Keywords, Cohorts, Tags)*/
-    display: flex;
+    /*display: flex;*/
     gap: 20px; /*zwischen Element und button*/
     align-items: center;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     margin-bottom: 10px; /*10px zur nächsten Controls-Zeile*/
+    /*margin-top: -100px;*/
     justify-content: flex-end; /* ← NEU! Buttons nach rechts */
     padding-right: 5%; /* ← NEU! Abstand vom Rand */
 }
@@ -102,6 +109,11 @@ h1 {
     gap: 8px;           /* Abstand zwischen Buttons */
     flex-wrap: wrap;
     align-items: center;
+}
+
+#filterContainer {
+    padding-left: 7px;
+
 }
 
 /* ═══ 3. BUTTONS ═══ */
