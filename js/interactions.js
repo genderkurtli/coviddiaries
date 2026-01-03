@@ -26,12 +26,32 @@ function renderKeywordButtons() {
     
     // Keyword Buttons
     Object.keys(keywordThemes).forEach(keyword => {
-        const btn = createButton(keyword, currentState.selectedKeyword === keyword);
+        const theme = keywordThemes[keyword];
+        const isActive = currentState.selectedKeyword === keyword;
+        
+        const btn = createButton(theme.label, isActive);
         btn.onclick = () => {
             currentState.selectedKeyword = keyword;
             renderKeywordButtons();
             renderDiaries();
         };
+        
+        // ← HOVER mit Farbe:
+        btn.onmouseenter = () => {
+            btn.style.backgroundColor = theme.color;
+            btn.style.color = 'white';
+        };
+        
+        btn.onmouseleave = () => {
+            if (isActive) {
+                btn.style.backgroundColor = '#2e2f30';
+                btn.style.color = 'white';
+            } else {
+                btn.style.backgroundColor = '#BF2A45';
+                btn.style.color = '#f6e3d7';
+            }
+        };
+        
         container.appendChild(btn);
     });
 }
