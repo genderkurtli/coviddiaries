@@ -24,13 +24,13 @@ const cohortColors = {
 // Farben für manuell getaggte Passagen <EMOTIONS>...</EMOTIONS>
 const tagColors = {
     'EMOTIONS': '#e46a88ff',
-    'EMPLOYMENT': '#e19595ff',
-    'ACTIVITIES': '#cd7eaeff',
-    'RELATIONS': '#c4b1d6ff',
-    'DIGITAL': '#8DAEB3',
-    'ROUTINE': '#F0B7DB',
-    'SCHOOL': '#FFB347',
-    'COVIDNEWS': '#edaec3ff'
+    'EMPLOYMENT': 'rgb(238, 70, 70)',
+    'ACTIVITIES': 'rgb(237, 189, 105)',
+    'RELATIONS': 'rgb(194, 141, 243)',
+    'DIGITAL': '#85d5f2',
+    'ROUTINE': '#7af4cf',
+    'SCHOOL': '#ffea47',
+    'COVIDNEWS': 'rgb(187, 229, 156)'
 };
 
 // ═══ KEYWORD-THEMES ═══
