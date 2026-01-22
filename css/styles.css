@@ -169,6 +169,23 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+/* Animation Button */
+.animation-btn {
+    background: #5fab92ff;  /* Grün */
+    color: white;
+    font-weight: 700;
+}
+
+.animation-btn:hover {
+    background: #4a8a72;
+    transform: scale(1.05);
+}
+
+#animationStatus {
+    font-size: 12px;
+    color: #f6e3d7;
+}
+
 /* Back Button */
 .back-btn {
     background: #e53e3e;

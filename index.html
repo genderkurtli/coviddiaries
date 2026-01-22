@@ -15,7 +15,7 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- HEADER CONTAINER                                                -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div id="headerContainer" style="border: 5px; border-style: solid;">      
+    <div id="headerContainer" style="border: 0px; border-style: solid;">      
         <div class="info-bar">
             12th May 2020 <span id="diaryCount">COUNT</span> diaries Source: Mass Observation Archive
         </div>
@@ -30,23 +30,24 @@
         </div>
     </div>
 
-    </div>
+   
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- FILTER CONTAINER                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->  
+    <div id="filterContainer" style="border: 0px; border-style: solid;">
+        <!-- Keyword Filters -->
+        <div class="controls">
+            <span class="filter-label">Keywords</span>
+            <div id="keywordButtons"></div>
+        </div>
+
+         </div>
         
         <!-- Animation Controls -->
         <div class="controls">
             <button onclick="startAnimation()" class="animation-btn">▶️ Animate Tags</button>
             <button onclick="stopAnimation()" class="animation-btn" style="display:none;" id="stopBtn">⏸️ Stop</button>
             <span class="stat" id="animationStatus"></span>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- FILTER CONTAINER                                                -->
-    <!-- ═══════════════════════════════════════════════════════════════ -->  
-    <div id="filterContainer" style="border: 5px; border-style: solid;">
-        <!-- Keyword Filters -->
-        <div class="controls">
-            <span class="filter-label">Keywords</span>
-            <div id="keywordButtons"></div>
         </div>
 
         <!-- Tag Filters -->
@@ -65,7 +66,7 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- MAIN CONTENT                                                    -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <main id="diaryContainer" class="diary-grid" style="border: 5px; border-style: solid;">
+    <main id="diaryContainer" class="diary-grid" style="border: 0px; border-style: solid;">
         <!-- Diaries werden hier von JavaScript eingefügt -->
     </main>
     

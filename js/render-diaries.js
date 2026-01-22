@@ -155,21 +155,26 @@ function createDiaryEntry(diary) {
     return entry;
 }
 
-/**
- * Highlightet Text (Tags + Keywords)
- */
+
+ /* Highlightet Text (Tags + Keywords)*/
+ 
 function highlightText(text) {
     let result = text;
     
-    // 1. Tags highlighten
+    // 1. Tags highlighten - IMMER Spans erstellen!
     result = result.replace(/<([A-Z]+)>(.*?)<\/\1>/gs, (match, tag, content) => {
         const state = currentState.tagStates[tag] || 'clean';
+        const color = tagColors[tag] || '#cbd5e0';
         
         if (state === 'clean') {
-            return content;  // Keine Färbung
-        } else {
-            const color = tagColors[tag] || '#cbd5e0';
-            return `<span class="tag-highlight tag-${tag}" style="background-color: ${color};">${content}</span>`;
+            // Bei clean: Span mit transparentem Hintergrund
+            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: transparent; opacity: 1;">${content}</span>`;
+        } else if (state === 'highlight') {
+            // Bei highlight: Span mit Farbe
+            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 2px 4px; border-radius: 3px;">${content}</span>`;
+        } else if (state === 'extract') {
+            // Bei extract: Span mit Farbe
+            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 2px 4px; border-radius: 3px;">${content}</span>`;
         }
     });
     
