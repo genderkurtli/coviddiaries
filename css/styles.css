@@ -37,10 +37,13 @@ body {
     z-index: 999;  /* Ganz oben */
 }
 .text-container {
-    display: block;          /* Eigene Zeile */
-    margin-top: 15px;        /* Abstand nach oben */
+    display: block;
+    font-size: 20px;          /* Eigene Zeile */
+    margin-top: 40px;        /* Abstand nach oben */
     padding-left: 70%;       /* Schiebt ganzen Container */
     text-align: right;       /* Text rechtsbündig */
+    white-space: normal;     /* Erlaubt Umbrüche */
+    word-wrap: break-word;   /* Bricht lange Wörter um */
 }
 
 
@@ -74,10 +77,12 @@ h1 {
     gap: 10px; /*Abstand zwischen Elementen der infobar*/
     align-items: center; /*Vertikale Ausrichtung: Alle Elemente mittig in der Höhe, auch wenn eins höher ist als andere*/
     flex-wrap: wrap; /*Umbruch erlaubt*/
-    margin-bottom: 1%; 
-    margin-top: 15px; 
-    justify-content: flex-end;
+    margin-bottom: 1%;
+    margin-top: 15px;
+    justify-content: flex-end; /* Schiebt Flex-Items nach rechts */
+    text-align: right; /* Text rechtsbündig */
     font-weight: bold;
+    font-size: 24px; /* Schriftgröße für 12th May Text */
 }
 
 .stat {
