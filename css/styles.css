@@ -23,7 +23,7 @@ body {
     margin: 0;
     font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background-size: 100% auto;
-    background-color: #deb6a0;
+    background-color: #ffffff;
     color: #1a202c;
 }
 
@@ -60,7 +60,7 @@ body {
     background-position: left top;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     color: #f6e3d7;
     min-height: 400px;
 }
@@ -124,11 +124,11 @@ h1 {
 /* ═══ 3. BUTTONS ═══ */
 
 button {/*alle anderen buttons, z.B. Zurück zu allen Diaries*/
-    background: #BF2A45;
+    background: #ffffff;
     color: white;
     border: none;
     padding: 8px 16px;
-    border-radius: 10px; /*wie rund die buttons sind -> je grösser die Zahl, desto runder*/
+    border-radius: 1px; /*wie rund die buttons sind -> je grösser die Zahl, desto runder*/
     cursor: pointer;/*Mauszeiger wird zu Hand, damit man sieht, dass man klicken kann*/
     font-size: 14px;
     font-weight: 600;
@@ -137,13 +137,13 @@ button {/*alle anderen buttons, z.B. Zurück zu allen Diaries*/
 }
 
 button:hover {
-    background: #a02338; /*Farbe, die der Button erhält, wenn man darüberfährt*/
+    background: #ffffff; /*Farbe, die der Button erhält, wenn man darüberfährt*/
     transform: translateY(-2px); /***Verschiebt nach oben:** 2px hoch, Button "hebt sich"*/
 }
 
 /* Filter Buttons = Keywords und Cohorts*/
 .filter-btn {
-    background: #BF2A45;/*Farbe des Buttons*/
+    background: #f9f9f9;/*Farbe des Buttons*/
     color: #f6e3d7;/*Schriftfarbe*/
     border: 0px solid #cbd5e0;/*Rand 0px= kein Rand, auch "none" würde gehen*/
 }
@@ -171,7 +171,7 @@ button:hover {
 
 .tag-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 0px rgba(0,0,0,0.15);
 }
 
 /* Animation Button */
@@ -198,7 +198,7 @@ button:hover {
 }
 
 .back-btn:hover {
-    background: #c53030;
+    background: #ffffff;
 }
 
 /* ═══ 4. DIARY GRID & COLUMNS ═══ */
@@ -244,30 +244,30 @@ button:hover {
 .cohort-header {
     position: sticky;
     top: 0;
-    background: #f7e5d7;
+    background: #ffffff;
     padding: 7px;
-    border-radius: 8px 8px 8px 8px; /*Form der Überschrift-Kästchen*/
+    border-radius: 0px 0px 0px 0px; /*Form der Überschrift-Kästchen*/
     font-weight: bold;
     font-size: 14px;
     text-align: center;
     z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-bottom: 4px solid;
+    box-shadow: 0 0px 0px rgb(249, 246, 246);
+    border-bottom: 1px solid;
 }
 
 /* ═══ 5. DIARY CARDS ═══ */
 
 .diary-entry {
     background: white;
-    border-radius: 8px;
+    border-radius: 0px;
     padding: 7px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-left: 4px solid;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    border-left: 1px solid;
     transition: all 0.3s;
 }
 
 .diary-entry:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.15);
     transform: translateY(-10px);
 }
 
@@ -275,36 +275,36 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .diary-id {
-    font-size: 12px;
+    font-size: 3px;
     font-weight: regular;
     color: #2d3748;
 }
 
 .diary-meta {
-    font-size: 12px;
+    font-size: 3px;
     color: #718096;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .diary-text {
-    font-size: 8px;
-    line-height: 1.7;
+    font-size: 3px;
+    line-height: 1.2;
     color: #2d3748;
 }
 
 .diary-text p {
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 
 /* Highlights */
 .tag-highlight {
-    padding: 2px 4px;
+    padding: 0;
     border-radius: 3px;
     transition: background-color 0.3s ease;
 }
@@ -326,9 +326,9 @@ button:hover {
 .extract-tag-section {
     margin-bottom: 40px;
     background: white;
-    border-radius: 8px;
+    border-radius: 0px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.1);
 }
 
 .extract-tag-header {
@@ -336,15 +336,15 @@ button:hover {
     font-weight: bold;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 3px solid;
+    border-bottom: 0px solid;
 }
 
 .extract-passage {
     margin-bottom: 25px;
     padding: 15px;
     background: #f9fafb;
-    border-radius: 6px;
-    border-left: 4px solid;
+    border-radius: 0px;
+    border-left: 0px solid;
 }
 
 .extract-meta {

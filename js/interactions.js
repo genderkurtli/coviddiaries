@@ -30,26 +30,23 @@ function renderKeywordButtons() {
         const isActive = currentState.selectedKeyword === keyword;
         
         const btn = createButton(theme.label, isActive);
+        btn.style.backgroundColor = theme.color;
+        btn.style.color = 'white';
         btn.onclick = () => {
             currentState.selectedKeyword = keyword;
             renderKeywordButtons();
             renderDiaries();
         };
-        
+
         // ← HOVER mit Farbe:
         btn.onmouseenter = () => {
             btn.style.backgroundColor = theme.color;
             btn.style.color = 'white';
         };
-        
+
         btn.onmouseleave = () => {
-            if (isActive) {
-                btn.style.backgroundColor = '#2e2f30';
-                btn.style.color = 'white';
-            } else {
-                btn.style.backgroundColor = '#BF2A45';
-                btn.style.color = '#f6e3d7';
-            }
+            btn.style.backgroundColor = theme.color;
+            btn.style.color = 'white';
         };
         
         container.appendChild(btn);
@@ -133,11 +130,11 @@ function renderTagButtons() {
             btn.style.borderWidth = '3px';
             btn.innerHTML = `${tag} <span>✀</span>`;
         } else { // clean
-            btn.style.backgroundColor = 'white';
-            btn.style.color = '#718096';
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
             btn.style.borderWidth = '2px';
             btn.textContent = tag;
-           btn.innerHTML = `${tag} <span>⏻</span>`; 
+           btn.innerHTML = `${tag} <span>⏻</span>`;
         }
         
         // Click Handler: Cycle durch States
@@ -155,8 +152,8 @@ function renderTagButtons() {
                 btn.style.backgroundColor = 'white';
                 btn.style.color = color;
             } else if (state === 'clean') {
-                btn.style.backgroundColor = 'white';
-                btn.style.color = '#718096';
+                btn.style.backgroundColor = color;
+                btn.style.color = 'white';
             }
         };
         

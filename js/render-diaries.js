@@ -171,10 +171,10 @@ function highlightText(text) {
             return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: transparent; opacity: 1;">${content}</span>`;
         } else if (state === 'highlight') {
             // Bei highlight: Span mit Farbe
-            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 2px 4px; border-radius: 3px;">${content}</span>`;
+            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 0; border-radius: 3px;">${content}</span>`;
         } else if (state === 'extract') {
             // Bei extract: Span mit Farbe
-            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 2px 4px; border-radius: 3px;">${content}</span>`;
+            return `<span class="tag-highlight tag-${tag}" data-tag="${tag}" style="background-color: ${color}; padding: 0; border-radius: 3px;">${content}</span>`;
         }
     });
     

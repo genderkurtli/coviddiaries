@@ -60,7 +60,7 @@ function initializeApp() {
     
     // Render Filter-Buttons
     renderKeywordButtons();
-    renderCohortButtons();
+    // renderCohortButtons();
     renderTagButtons();
     
     // Render Diaries

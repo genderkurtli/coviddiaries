@@ -23,76 +23,76 @@ const cohortColors = {
 // ═══ TAG-FARBEN ═══
 // Farben für manuell getaggte Passagen <EMOTIONS>...</EMOTIONS>
 const tagColors = {
-    'EMOTIONS': 'rgb(249, 172, 233)',
-    'EMPLOYMENT': 'rgb(245, 169, 169)',
-    'ACTIVITIES': 'rgb(244, 218, 174)',
-    'RELATIONS': 'rgb(227, 207, 245)',
-    'DIGITAL': '#c2efff',
-    'ROUTINE': '#aef3de',
-    'SCHOOL': '#feef7f',
-    'COVIDNEWS': 'rgb(202, 247, 170)'
+    'EMOTIONS': '#ebc952',
+    'EMPLOYMENT': '#cfc25c',
+    'ACTIVITIES': '#b0bd63',
+    'RELATIONS': '#94b56e',
+    'DIGITAL': '#75b078',
+    'ROUTINE': '#59ab82',
+    'SCHOOL': '#3ba38c',
+    'COVIDNEWS': '#1c9e94'
 };
 
 // ═══ KEYWORD-THEMES ═══
 // Automatische Keyword-Erkennung für Themen
 const keywordThemes = {
     'lockdown': {
-        color: '#e8cb81ff',
+        color: 'rgb(190, 152, 182)',
         keywords: ['lockdown', 'stay home','locked', 'shutdown', 'quarantine','home', 'stay home'],
         label: 'lockdown'
     },
     'relations': {
-        color: '#fb923c',
+        color: '#ffd1d6',
         keywords: ['family', 'friend', 'partner', 'relative', 'mum', 'dad','child','couple', 'brother', 'sister','daughter', 'son','mother','wife', 'husband'],
         label: 'relations'
     },
     'bad feelings': {
-        color: '#8e6c6cff',
+        color: 'rgb(221, 195, 189)',
         keywords: ['fear', 'grief', 'guilt','worried','worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult'],
         label: 'bad feelings'
     },
     'good feelings': {
-        color: '#5fab92ff',
+        color: 'rgb(95, 168, 194)',
         keywords: ['hope', 'grattitude','hopeful', 'optimis', 'positive', 'better', 'loveley','lucky','fun', 'pretty','happy', ],
         label: 'good feelings'
     },
     'isolation': {
-        color: '#b39ce9ff',
+        color: '#5c879c',
         keywords: ['alone', 'isolated', 'lonely', 'solitude', 'miss'],
         label: 'isolation'
     },
     'routine': {
-        color: '#ed94c0ff',
+        color: '#636173',
         keywords: ['routine', 'daily', 'usual', 'normal', 'regular'],
         label: 'routine'
     },
     'work': {
-        color: '#95e1d3',
+        color: '#75424f',
         keywords: ['work', 'working', 'lesson','job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'study', 'studying', 'college'],
         label: 'work'
      },
      'food': {
-        color: '#c8eda5ff',
+        color: '#936375',
         keywords: ['food','cup', 'eat', 'ate', 'cook', 'bake', 'tea', 'bread', 'meal','dinner','breakfast','lunch','coffee'],
         label: 'food'
     },
     'time': {
-        color: '#a5edcfff',
+        color: '#ddb98b',
         keywords: ['time', 'year', 'month', 'week', 'today', 'day', 'daily','morning', 'afternoon','soon','yesterday','evening','night','hour','minute'],
         label: 'time'
          },
     'pandemic': {
-        color: '#8da278ff',
+        color: '#ae9386',
         keywords: ['pandemic', 'funeral','virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease'],
         label: 'pandemic'
 },
 'activities': {
-        color: '#9ea1bdff',
+        color: '#bab5a6',
         keywords: ['reading','writing','exercise', 'yoga','shopping','walking' ],
         label: 'activities'
 },
 'spaces': {
-        color: '#8578a2ff',
+        color: '#ae8874',
         keywords: ['room', 'home', 'house', 'bed','garden' , 'place','downstairs'],
         label: 'spaces'
 },
