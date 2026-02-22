@@ -168,12 +168,12 @@ function cycleTagState(tag) {
     const currentTagState = currentState.tagStates[tag] || 'clean';
     
     if (currentTagState === 'clean') {
-        // CLEAN → HIGHLIGHT
+        // CLEAN → HIGHLIGHT (mit Sweep-Animation)
         currentState.tagStates[tag] = 'highlight';
         currentState.viewMode = 'grid';
         renderTagButtons();
-        renderDiaries();
-        
+        sweepTagHighlight(tag);
+
     } else if (currentTagState === 'highlight') {
         // HIGHLIGHT → EXTRACT
         currentState.tagStates[tag] = 'extract';
@@ -181,9 +181,9 @@ function cycleTagState(tag) {
         currentState.viewMode = 'extract';
         renderTagButtons();
         renderDiaries();
-        
+
     } else { // extract
-        // EXTRACT → CLEAN
+        // EXTRACT → CLEAN (mit Sweep-Animation zurück)
         currentState.tagStates[tag] = 'clean';
         currentState.selectedTag = null;
         currentState.viewMode = 'grid';
