@@ -36,14 +36,23 @@ body {
     pointer-events: none;  /* Klicks gehen durch! */
     z-index: 999;  /* Ganz oben */
 }
+.header-title {
+    font-size: 150px;
+    font-weight: 900;
+    line-height: 1;
+    color: #1a1a1a;
+    padding-left: 20px;
+}
+
 .text-container {
     display: block;
-    font-size: 20px;          /* Eigene Zeile */
-    margin-top: 40px;        /* Abstand nach oben */
-    padding-left: 70%;       /* Schiebt ganzen Container */
-    text-align: right;       /* Text rechtsbündig */
-    white-space: normal;     /* Erlaubt Umbrüche */
-    word-wrap: break-word;   /* Bricht lange Wörter um */
+    font-size: 20px;
+    margin-top: 40px;
+    padding-left: 20px;
+    text-align: left;
+    color: #1a1a1a;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 
@@ -55,11 +64,11 @@ body {
     border-style: solid;
     margin-bottom: 1em;
     padding-right: 5%;
-    background-image: url('../images/background.jpg');
+    /*background-image: url('../images/background.jpg');
     background-size: 100% auto;
     background-position: left top;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
     background-color: rgb(255, 255, 255);
     color: #f6e3d7;
     min-height: 400px;
