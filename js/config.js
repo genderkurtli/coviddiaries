@@ -11,13 +11,13 @@
 // ═══ COHORT-FARBEN ═══
 // Farben für die linke Linie jeder Diary-Card
 const cohortColors = {
-    '1920s': '#000000',  // Rot
-    '1930s': '#010101',  // Orange
-    '1940s': '#000000',  // Gelb
-    '1950s': '#080808',  // Türkis
-    '1960s': '#000000',  // Blau
-    '1970s': '#000000',  // Lila
-    '2010s': '#000000'   // Pink
+    '1920s': '#000000',  
+    '1930s': '#010101',  
+    '1940s': '#000000',  
+    '1950s': '#1b1b1b', 
+    '1960s': '#000000',  
+    '1970s': '#000000', 
+    '2010s': '#000000'  
 };
 
 // ═══ TAG-FARBEN ═══
@@ -38,69 +38,69 @@ const tagColors = {
 const keywordThemes = {
     'lockdown': {
         color: 'rgb(190, 152, 182)',
-        keywords: ['lockdown', 'stay home','locked', 'shutdown', 'quarantine','home', 'stay home'],
+        keywords: ['lockdown', 'stay at home', 'locked', 'shutdown', 'quarantine', 'home', 'government', 'Boris', 'restrict', 'rules'],
         label: 'lockdown'
     },
     'relations': {
         color: '#ffd1d6',
-        keywords: ['family', 'friend', 'partner', 'relative', 'mum', 'dad','child','couple', 'brother', 'sister','daughter', 'son','mother','wife', 'husband'],
+        keywords: ['family', 'friend', 'kid', 'kids', 'partner', 'relative', 'mum', 'dad', 'child', 'couple', 'brother', 'sister', 'daughter', 'son', 'mother', 'wife', 'husband', 'parent', 'gran', 'neighbour', 'colleague', 'baby', 'girlfriend', 'boyfriend'],
         label: 'relations'
     },
     'bad feelings': {
         color: 'rgb(221, 195, 189)',
-        keywords: ['fear', 'grief', 'guilt','worried','worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult'],
+        keywords: ['fear', 'grief', 'guilt', 'worried', 'worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult', 'longing', 'sad', 'stress', 'tired', 'frustrated', 'bored', 'boring', 'depressed'],
         label: 'bad feelings'
     },
     'good feelings': {
         color: 'rgb(95, 168, 194)',
-        keywords: ['hope', 'grattitude','hopeful', 'optimis', 'positive', 'better', 'loveley','lucky','fun', 'pretty','happy', ],
+        keywords: ['hope', 'grattitude', 'hopeful', 'optimis', 'positive', 'better', 'loveley', 'lucky', 'fun', 'pretty', 'happy', 'enjoy', 'love', 'comfort', 'grateful', 'calm'],
         label: 'good feelings'
     },
     'isolation': {
         color: '#5c879c',
-        keywords: ['alone', 'isolated', 'lonely', 'solitude', 'miss'],
+        keywords: ['alone', 'isolated', 'lonely', 'solitude', 'miss', 'apart', 'separate', 'stuck', 'social distancing'],
         label: 'isolation'
     },
     'routine': {
         color: '#636173',
-        keywords: ['routine', 'daily', 'usual', 'normal', 'regular'],
+        keywords: ['routine', 'daily', 'usual', 'normal', 'regular', 'sleep', 'wake', 'habit'],
         label: 'routine'
     },
     'work': {
         color: '#75424f',
-        keywords: ['work', 'working', 'lesson','job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'study', 'studying', 'college'],
+        keywords: ['work', 'working', 'lesson', 'job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'studying', 'college', 'furlough', 'office', 'student', 'teach'],
         label: 'work'
-     },
-     'food': {
+    },
+    'food': {
         color: '#936375',
-        keywords: ['food','cup', 'eat', 'ate', 'cook', 'bake', 'tea', 'bread', 'meal','dinner','breakfast','lunch','coffee'],
+        keywords: ['food', 'cup', 'eat', 'ate', 'cook', 'bake', 'tea', 'bread', 'meal', 'dinner', 'breakfast', 'lunch', 'coffee', 'shop', 'cake', 'drink', 'soup', 'fruit', 'wine'],
         label: 'food'
     },
     'time': {
         color: '#ddb98b',
-        keywords: ['time', 'year', 'month', 'week', 'today', 'day', 'daily','morning', 'afternoon','soon','yesterday','evening','night','hour','minute'],
+        keywords: ['time', 'year', 'month', 'week', 'today', 'day', 'daily', 'morning', 'afternoon', 'soon', 'yesterday', 'evening', 'night', 'hour', 'minute'],
         label: 'time'
-         },
+    },
     'pandemic': {
         color: '#ae9386',
-        keywords: ['pandemic', 'funeral','virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease'],
+        keywords: ['pandemic', 'funeral', 'virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease', 'hospital', 'NHS', 'nurse', 'doctor', 'death'],
         label: 'pandemic'
-},
-'activities': {
+    },
+    'activities': {
         color: '#b39741',
-        keywords: ['reading','writing','exercise', 'yoga','shopping','walking' ],
+        keywords: ['reading', 'writing', 'exercise', 'yoga', 'shopping', 'walking', 'garden', 'run', 'TV', 'music', 'film', 'Netflix'],
         label: 'activities'
-},
-'spaces': {
+    },
+    'spaces': {
         color: '#ae8874',
-        keywords: ['room', 'home', 'house', 'bed','garden' , 'place','downstairs'],
+        keywords: ['room', 'home', 'house', 'bed', 'garden', 'place', 'downstairs', 'kitchen', 'outside', 'flat', 'park', 'window'],
         label: 'spaces'
-},
-'communication': {
+    },
+    'communication': {
         color: '#dfc6a2ff',
-        keywords: ['call', 'chat', 'zoom', 'whatsapp','email','meet'],
+        keywords: ['call', 'chat', 'zoom', 'whatsapp', 'email', 'meet', 'phone', 'talk', 'visit', 'message', 'skype'],
         label: 'communication'
-}
+    }
 };
 
 // ═══ GLOBALE EINSTELLUNGEN ═══

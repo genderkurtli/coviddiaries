@@ -168,6 +168,22 @@ button:hover {
     border-color: #2e2f30;
 }
 
+/* Keyword Buttons (überschreibt filter-btn) */
+.keyword-btn {
+    background: transparent;
+    color: #1a1a1a;
+}
+
+.keyword-btn:hover {
+    background: #888888;
+    color: white;
+}
+
+.keyword-btn.active {
+    background: #1a1a1a;
+    color: white;
+}
+
 /* Tag Buttons */
 .tag-btn {
     background: white;
@@ -247,21 +263,35 @@ button:hover {
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 1px;
+}
+
+.cohort-column:not(:first-child) {
+    position: relative;
+}
+
+.cohort-column:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    border-left: 2px dotted #a0a0a0;
 }
 
 .cohort-header {
     position: sticky;
     top: 0;
     background: #ffffff;
-    padding: 7px;
+    padding: 7px 7px 0px 7px;
+    margin-bottom: -4px;
     border-radius: 0px 0px 0px 0px; /*Form der Überschrift-Kästchen*/
-    font-weight: bold;
-    font-size: 14px;
-    text-align: center;
+    font-weight: regular;
+    font-size: 12px;
+    text-align: left;
     z-index: 10;
     box-shadow: 0 0px 0px rgb(249, 246, 246);
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
 }
 
 /* ═══ 5. DIARY CARDS ═══ */
@@ -271,13 +301,13 @@ button:hover {
     border-radius: 0px;
     padding: 7px;
     box-shadow: 0 0px 0px rgba(0,0,0,0.1);
-    border-left: 1px solid;
+    border-left: none;
     transition: all 0.3s;
 }
 
 .diary-entry:hover {
     box-shadow: 0 0px 0px rgba(0,0,0,0.15);
-    transform: translateY(-10px);
+    transform: translateY(0px);
 }
 
 .diary-header {
@@ -290,13 +320,13 @@ button:hover {
 }
 
 .diary-id {
-    font-size: 3px;
+    font-size: 6px;
     font-weight: regular;
     color: #2d3748;
 }
 
 .diary-meta {
-    font-size: 3px;
+    font-size: 6px;
     color: #718096;
     font-weight: normal;
 }

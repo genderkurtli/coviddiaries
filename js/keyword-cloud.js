@@ -28,7 +28,14 @@ function computeKeywordFrequencies() {
 
             // In Plain-Text zählen (HTML-Tags entfernen)
             const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
+            // Einzel-Wörter: Prefix-Matching (\bword\w*) erfasst Beugungen (z.B. "quarantined")
+            // Ausnahmen: Wörter wo Prefix zu false positives führt (z.B. "apart" → "apartment")
+            const exactMatchWords = ['apart', 'tea', 'flat'];
+            const isMultiWord = word.includes(' ');
+            const useExact = isMultiWord || exactMatchWords.includes(key);
+            const regex = useExact
+                ? new RegExp(`\\b${escapedWord}\\b`, 'gi')
+                : new RegExp(`\\b${escapedWord}\\w*`, 'gi');
             diaryData.forEach(diary => {
                 const plainText = diary.text.replace(/<[^>]*>/g, '');
                 const matches = plainText.match(regex);
@@ -56,6 +63,7 @@ function initKeywordCloud() {
 
     const frequencies = computeKeywordFrequencies();
 
+    // Nur Keywords die tatsächlich vorkommen (count > 0)
     const wordEntries = Object.entries(frequencies).filter(([, data]) => data.count > 0);
     if (wordEntries.length === 0) return;
 
@@ -63,22 +71,20 @@ function initKeywordCloud() {
 
     const words = wordEntries.map(([word, data]) => ({
         text: word,
-        size: 9 + (Math.log(data.count + 1) / Math.log(maxCount + 1)) * 38,
+        size: 8 + (Math.log(data.count + 1) / Math.log(maxCount + 1)) * 22,
         count: data.count,
         themes: data.themes
-    }));
+    })).sort((a, b) => b.size - a.size); // Grösste zuerst = bessere Platzierung
 
     d3.layout.cloud()
-        .size([460, 280])
+        .size([900, 500])
         .words(words)
-        .padding(4)
+        .padding(2)
         .rotate(() => (Math.random() > 0.75 ? 90 : 0))
         .font('roboto, sans-serif')
         .fontSize(d => d.size)
         .on('end', positioned => buildCloudSvg(positioned))
         .start();
-
-    console.log('✅ Keyword Cloud berechnet');
 }
 
 // ═══ SVG AUFBAUEN ═══
@@ -94,11 +100,11 @@ function buildCloudSvg(words) {
 
     const svg = d3.select('#keyword-cloud-tooltip')
         .append('svg')
-        .attr('width', 460)
-        .attr('height', 280);
+        .attr('width', 900)
+        .attr('height', 500);
 
     svg.append('g')
-        .attr('transform', 'translate(230,140)')
+        .attr('transform', 'translate(450,250)')
         .selectAll('text')
         .data(words)
         .enter()
@@ -126,12 +132,10 @@ function showKeywordCloud(themeName, btnElement) {
     const tooltip = document.getElementById('keyword-cloud-tooltip');
     if (!tooltip || !cloudSvgSelection) return;
 
-    const color = keywordThemes[themeName]?.color || '#666';
-
-    // Wörter des gehoverten Themes: farbig + fett
+    // Wörter des gehoverten Themes: schwarz + fett
     // Alle anderen: ausgegraut
     cloudSvgSelection.selectAll('.cloud-word')
-        .style('fill', d => d.themes.includes(themeName) ? color : '#e0e0e0')
+        .style('fill', d => d.themes.includes(themeName) ? '#3a3a3a' : '#c0c0c0')
         .style('font-weight', d => d.themes.includes(themeName) ? 'bold' : 'normal')
         .style('opacity', d => d.themes.includes(themeName) ? 1 : 0.35);
 
@@ -141,12 +145,12 @@ function showKeywordCloud(themeName, btnElement) {
     let top = rect.bottom + 8;
 
     // Am rechten Rand nach links klappen
-    if (left + 480 > window.innerWidth) {
-        left = window.innerWidth - 480;
+    if (left + 920 > window.innerWidth) {
+        left = window.innerWidth - 920;
     }
     // Am unteren Rand nach oben klappen
-    if (top + 300 > window.innerHeight) {
-        top = rect.top - 300 - 8;
+    if (top + 520 > window.innerHeight) {
+        top = rect.top - 520 - 8;
     }
 
     tooltip.style.left = left + 'px';

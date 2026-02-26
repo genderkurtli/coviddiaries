@@ -17,6 +17,7 @@ function renderKeywordButtons() {
     
     // "Clear" Button
     const allBtn = createButton('clear', currentState.selectedKeyword === null);
+    allBtn.classList.add('keyword-btn');
     allBtn.onclick = () => {
         currentState.selectedKeyword = null;
         renderKeywordButtons();
@@ -30,24 +31,18 @@ function renderKeywordButtons() {
         const isActive = currentState.selectedKeyword === keyword;
         
         const btn = createButton(theme.label, isActive);
-        btn.style.backgroundColor = theme.color;
-        btn.style.color = 'white';
+        btn.classList.add('keyword-btn');
         btn.onclick = () => {
             currentState.selectedKeyword = keyword;
             renderKeywordButtons();
             renderDiaries();
         };
 
-        // ← HOVER mit Farbe + Word Cloud:
         btn.onmouseenter = () => {
-            btn.style.backgroundColor = theme.color;
-            btn.style.color = 'white';
             showKeywordCloud(keyword, btn);
         };
 
         btn.onmouseleave = () => {
-            btn.style.backgroundColor = theme.color;
-            btn.style.color = 'white';
             hideKeywordCloud();
         };
         

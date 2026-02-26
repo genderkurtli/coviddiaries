@@ -114,7 +114,7 @@ function createCohortColumn(cohort, diaries) {
 function createDiaryEntry(diary) {
     const entry = document.createElement('div');
     entry.className = 'diary-entry';
-    entry.style.borderLeftColor = cohortColors[diary.cohort] || '#cbd5e0';
+
     entry.dataset.diaryId = diary.id;
     
     // Header mit Metadaten
