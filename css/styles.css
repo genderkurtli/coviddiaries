@@ -299,7 +299,7 @@ button:hover {
 .diary-entry {
     background: white;
     border-radius: 0px;
-    padding: 7px;
+    padding: 3px 7px;
     box-shadow: 0 0px 0px rgba(0,0,0,0.1);
     border-left: none;
     transition: all 0.3s;
