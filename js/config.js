@@ -11,13 +11,13 @@
 // ═══ COHORT-FARBEN ═══
 // Farben für die linke Linie jeder Diary-Card
 const cohortColors = {
-    '1920s': '#e53e3e',  // Rot
-    '1930s': '#dd6b20',  // Orange
-    '1940s': '#d69e2e',  // Gelb
-    '1950s': '#9BDFCA',  // Türkis
-    '1960s': '#3182ce',  // Blau
-    '1970s': '#CEA0DF',  // Lila
-    '2010s': '#ed64a6'   // Pink
+    '1920s': '#000000',  // Rot
+    '1930s': '#010101',  // Orange
+    '1940s': '#000000',  // Gelb
+    '1950s': '#080808',  // Türkis
+    '1960s': '#000000',  // Blau
+    '1970s': '#000000',  // Lila
+    '2010s': '#000000'   // Pink
 };
 
 // ═══ TAG-FARBEN ═══
@@ -29,8 +29,8 @@ const tagColors = {
     'RELATIONS': '#94b56e',
     'DIGITAL': '#75b078',
     'ROUTINE': '#59ab82',
-    'SCHOOL': '#3ba38c',
-    'COVIDNEWS': '#1c9e94'
+    'SCHOOL': '#a2eada',
+    'COVIDNEWS': '#f063cf'
 };
 
 // ═══ KEYWORD-THEMES ═══
@@ -87,7 +87,7 @@ const keywordThemes = {
         label: 'pandemic'
 },
 'activities': {
-        color: '#bab5a6',
+        color: '#b39741',
         keywords: ['reading','writing','exercise', 'yoga','shopping','walking' ],
         label: 'activities'
 },

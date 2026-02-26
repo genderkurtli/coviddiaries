@@ -96,7 +96,7 @@ h1 {
 
 .stat {
     font-size: 14px;
-    color: #f6e3d7;
+    color: #000000;
     font-weight: 600; /*400=normal, 600=etwas fett, 700=fett*/
 }
 
@@ -324,7 +324,36 @@ button:hover {
     font-weight: bold;
 }
 
-/* ═══ 6. EXTRACT VIEW ═══ */
+/* ═══ 6. MAGNIFIER ═══ */
+
+#magnifier {
+    display: none;
+    position: fixed;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    padding: 12px 16px;
+    max-width: 380px;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+#magnifier-meta {
+    font-size: 11px;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+}
+
+#magnifier-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #2d3748;
+}
+
+/* ═══ 7. EXTRACT VIEW ═══ */
 
 .extract-container {
     max-width: 1200px;
