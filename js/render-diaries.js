@@ -183,10 +183,12 @@ function highlightText(text) {
         const theme = keywordThemes[currentState.selectedKeyword];
         if (theme) {
             theme.keywords.forEach(word => {
-                const regex = new RegExp(`\\b${word}\\w*\\b`, 'gi');
-                result = result.replace(regex, match => 
-                    `<mark class="keyword-highlight" style="background-color: ${theme.color};">${match}</mark>`
-                );
+                const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(<[^>]*>)|(\\b${escapedWord}\\w*\\b)`, 'gi');
+                result = result.replace(regex, (_match, htmlTag, keyword) => {
+                    if (htmlTag) return htmlTag;
+                    return `<mark class="keyword-highlight" style="background-color: ${theme.color};">${keyword}</mark>`;
+                });
             });
         }
     }

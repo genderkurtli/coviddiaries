@@ -162,11 +162,11 @@ function renderTagButtons() {
 }
 
 /**
- * Cycle durch Tag-States: CLEAN → HIGHLIGHT → EXTRACT → CLEAN
+ * Cycle durch Tag-States: CLEAN → HIGHLIGHT → CLEAN
  */
 function cycleTagState(tag) {
     const currentTagState = currentState.tagStates[tag] || 'clean';
-    
+
     if (currentTagState === 'clean') {
         // CLEAN → HIGHLIGHT (mit Sweep-Animation)
         currentState.tagStates[tag] = 'highlight';
@@ -174,22 +174,29 @@ function cycleTagState(tag) {
         renderTagButtons();
         sweepTagHighlight(tag);
 
+    } else { // highlight
+        // HIGHLIGHT → CLEAN
+        currentState.tagStates[tag] = 'clean';
+        currentState.viewMode = 'grid';
+        renderTagButtons();
+        renderDiaries();
+    }
+
+    /* EXTRACT-Zustand auskommentiert (nicht nötig solange Magnifier aktiv)
     } else if (currentTagState === 'highlight') {
-        // HIGHLIGHT → EXTRACT
         currentState.tagStates[tag] = 'extract';
         currentState.selectedTag = tag;
         currentState.viewMode = 'extract';
         renderTagButtons();
         renderDiaries();
-
     } else { // extract
-        // EXTRACT → CLEAN (mit Sweep-Animation zurück)
         currentState.tagStates[tag] = 'clean';
         currentState.selectedTag = null;
         currentState.viewMode = 'grid';
         renderTagButtons();
         renderDiaries();
     }
+    */
 }
 
 // ═══ ZOOM ═══

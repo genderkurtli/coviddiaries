@@ -89,19 +89,19 @@ function findDiaryEntry(element) {
 function getWordAtPoint(x, y) {
     let textNode, offset;
 
-    // Chrome / Safari
-    if (document.caretRangeFromPoint) {
-        const range = document.caretRangeFromPoint(x, y);
-        if (!range) return null;
-        textNode = range.startContainer;
-        offset = range.startOffset;
-    }
-    // Firefox
-    else if (document.caretPositionFromPoint) {
+    // Modern Standard (Chrome 128+, Firefox)
+    if (document.caretPositionFromPoint) {
         const pos = document.caretPositionFromPoint(x, y);
         if (!pos) return null;
         textNode = pos.offsetNode;
         offset = pos.offset;
+    }
+    // Fallback (ältere Chrome / Safari)
+    else if (document.caretRangeFromPoint) {
+        const range = document.caretRangeFromPoint(x, y);
+        if (!range) return null;
+        textNode = range.startContainer;
+        offset = range.startOffset;
     }
     else return null;
 
@@ -119,45 +119,80 @@ function getWordAtPoint(x, y) {
 }
 
 /**
- * Extrahiert 20 Wörter vor und nach dem gesuchten Wort
+ * Baut eine Liste von {word, tagName} aus dem Originaltext
+ */
+function parseTaggedWords(text) {
+    const clean = text.replace(/<img[^>]*>/gi, '');
+    const words = [];
+    const regex = /<([A-Z]+)>(.*?)<\/\1>|([^<]+)/gs;
+    let match;
+
+    while ((match = regex.exec(clean)) !== null) {
+        if (match[1]) {
+            // Getaggter Inhalt
+            const tagName = match[1];
+            match[2].split(/\s+/).filter(w => w).forEach(w => {
+                words.push({ word: w, tagName });
+            });
+        } else if (match[3]) {
+            // Ungetaggter Text
+            match[3].split(/\s+/).filter(w => w).forEach(w => {
+                words.push({ word: w, tagName: null });
+            });
+        }
+    }
+
+    return words;
+}
+
+/**
+ * Prüft ob ein Tag aktiv (highlight oder extract) ist
+ */
+function isTagActive(tagName) {
+    return currentState &&
+        currentState.tagStates[tagName] &&
+        currentState.tagStates[tagName] !== 'clean';
+}
+
+/**
+ * Extrahiert 20 Wörter vor und nach dem gesuchten Wort, mit Tag-Farben als HTML
  */
 function getContext(diaryId, word) {
     const diary = diaryData.find(d => String(d.id) === String(diaryId));
     if (!diary) return null;
 
-    // Tags und HTML entfernen
-    const cleanText = diary.text
-        .replace(/<[A-Z]+>|<\/[A-Z]+>/gi, '')
-        .replace(/<img[^>]*>/gi, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-
-    const words = cleanText.split(' ');
+    const taggedWords = parseTaggedWords(diary.text);
     const wordLower = word.toLowerCase();
 
-    // Wort-Index suchen (Anfang des Wortes matchen, Satzzeichen ignorieren)
-    let wordIndex = words.findIndex(w =>
-        w.toLowerCase().replace(/[.,!?;:"'()]/g, '') === wordLower
+    // Wort-Index suchen
+    let wordIndex = taggedWords.findIndex(w =>
+        w.word.toLowerCase().replace(/[.,!?;:"'()]/g, '') === wordLower
     );
-
-    // Fallback: enthält das Wort
     if (wordIndex === -1) {
-        wordIndex = words.findIndex(w =>
-            w.toLowerCase().includes(wordLower)
+        wordIndex = taggedWords.findIndex(w =>
+            w.word.toLowerCase().includes(wordLower)
         );
     }
-
-    // Fallback: Mitte des Textes
-    if (wordIndex === -1) wordIndex = Math.floor(words.length / 2);
+    if (wordIndex === -1) wordIndex = Math.floor(taggedWords.length / 2);
 
     const start = Math.max(0, wordIndex - 20);
-    const end = Math.min(words.length, wordIndex + 21);
+    const end = Math.min(taggedWords.length, wordIndex + 21);
+    const slice = taggedWords.slice(start, end);
 
-    // Ellipsen wenn nicht am Anfang/Ende
-    const prefix = start > 0 ? '… ' : '';
-    const suffix = end < words.length ? ' …' : '';
+    // HTML mit Tag-Farben aufbauen
+    let html = start > 0 ? '<span style="color:#aaa">… </span>' : '';
 
-    return prefix + words.slice(start, end).join(' ') + suffix;
+    slice.forEach(({ word: w, tagName }) => {
+        if (tagName && tagColors[tagName] && isTagActive(tagName)) {
+            html += `<span style="background-color:${tagColors[tagName]}">${w}</span> `;
+        } else {
+            html += w + ' ';
+        }
+    });
+
+    if (end < taggedWords.length) html += '<span style="color:#aaa"> …</span>';
+
+    return html;
 }
 
 /**
@@ -168,7 +203,7 @@ function showMagnifier(text, meta, cursorX, cursorY) {
     if (!tooltip) return;
 
     tooltip.querySelector('#magnifier-meta').textContent = meta;
-    tooltip.querySelector('#magnifier-text').textContent = text;
+    tooltip.querySelector('#magnifier-text').innerHTML = text;
     tooltip.style.display = 'block';
 
     positionMagnifier(cursorX, cursorY);
