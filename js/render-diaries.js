@@ -156,8 +156,59 @@ function createDiaryEntry(diary) {
 }
 
 
- /* Highlightet Text (Tags + Keywords)*/
- 
+// ═══ KEYWORD FREQUENZEN (gecacht) ═══
+
+let keywordFreqCache = {};
+
+/**
+ * Zählt wie oft jedes Keyword eines Themes in den Texten vorkommt.
+ * Ergebnis wird gecacht, damit es nur einmal berechnet wird.
+ */
+function getThemeFrequencies(themeName) {
+    if (keywordFreqCache[themeName]) return keywordFreqCache[themeName];
+
+    const theme = keywordThemes[themeName];
+    const freqs = {};
+
+    theme.keywords.forEach(word => {
+        const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
+        let count = 0;
+        diaryData.forEach(diary => {
+            const plainText = diary.text.replace(/<[^>]*>/g, '');
+            const matches = plainText.match(regex);
+            if (matches) count += matches.length;
+        });
+        freqs[word.toLowerCase()] = count;
+    });
+
+    keywordFreqCache[themeName] = freqs;
+    return freqs;
+}
+
+/**
+ * Gibt die Schriftgrösse für ein Keyword zurück — 6 Stufen nach Häufigkeit.
+ */
+function getKeywordFontSize(word, themeName) {
+    const freqs = getThemeFrequencies(themeName);
+    const counts = Object.values(freqs).filter(c => c > 0);
+    if (counts.length === 0) return 10;
+
+    const max = Math.max(...counts);
+    const min = Math.min(...counts);
+    const count = freqs[word.toLowerCase()] || 0;
+
+    const steps = [8, 10, 12, 14, 16, 18]; // 6 Stufen
+    if (count === 0) return steps[0];
+    if (max === min) return steps[2];
+
+    const ratio = (count - min) / (max - min); // 0.0 → 1.0
+    const stepIndex = Math.min(Math.floor(ratio * 6), 5);
+    return steps[stepIndex];
+}
+
+/* Highlightet Text (Tags + Keywords)*/
+
 function highlightText(text) {
     let result = text;
     
@@ -184,10 +235,11 @@ function highlightText(text) {
         if (theme) {
             theme.keywords.forEach(word => {
                 const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const regex = new RegExp(`(<[^>]*>)|(\\b${escapedWord}\\w*\\b)`, 'gi');
+                const regex = new RegExp(`(<[^>]*>)|(\\b${escapedWord}\\b)`, 'gi');
+                const fontSize = getKeywordFontSize(word, currentState.selectedKeyword);
                 result = result.replace(regex, (_match, htmlTag, keyword) => {
                     if (htmlTag) return htmlTag;
-                    return `<mark class="keyword-highlight" style="background-color: ${theme.color};">${keyword}</mark>`;
+                    return `<mark class="keyword-highlight" style="font-size:${fontSize}px;">${keyword}</mark>`;
                 });
             });
         }

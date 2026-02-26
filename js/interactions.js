@@ -38,15 +38,17 @@ function renderKeywordButtons() {
             renderDiaries();
         };
 
-        // ← HOVER mit Farbe:
+        // ← HOVER mit Farbe + Word Cloud:
         btn.onmouseenter = () => {
             btn.style.backgroundColor = theme.color;
             btn.style.color = 'white';
+            showKeywordCloud(keyword, btn);
         };
 
         btn.onmouseleave = () => {
             btn.style.backgroundColor = theme.color;
             btn.style.color = 'white';
+            hideKeywordCloud();
         };
         
         container.appendChild(btn);
