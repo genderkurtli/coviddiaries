@@ -284,7 +284,7 @@ button:hover {
     top: 0;
     background: #ffffff;
     padding: 7px 7px 0px 7px;
-    margin-bottom: -4px;
+    margin-bottom: 4px;
     border-radius: 0px 0px 0px 0px; /*Form der Überschrift-Kästchen*/
     font-weight: regular;
     font-size: 12px;
@@ -322,7 +322,7 @@ button:hover {
 .diary-id {
     font-size: 6px;
     font-weight: regular;
-    color: #2d3748;
+    color: #718096;
 }
 
 .diary-meta {
