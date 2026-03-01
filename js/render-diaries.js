@@ -211,7 +211,14 @@ function getKeywordFontSize(word, themeName) {
 
 function highlightText(text) {
     let result = text;
-    
+
+    // 0. Bilder durch ▣ Placeholder ersetzen
+    result = result.replace(/<img([^>]*)>/gi, (match, attrs) => {
+        const srcMatch = attrs.match(/src="{1,2}([^"]+?)"{1,2}/i) || attrs.match(/src='([^']+?)'/i);
+        const src = srcMatch ? srcMatch[1] : '';
+        return `<span class="img-placeholder" data-src="${src}">▣</span>`;
+    });
+
     // 1. Tags highlighten - IMMER Spans erstellen!
     result = result.replace(/<([A-Z]+)>(.*?)<\/\1>/gs, (match, tag, content) => {
         const state = currentState.tagStates[tag] || 'clean';

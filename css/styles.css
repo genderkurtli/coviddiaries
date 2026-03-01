@@ -260,7 +260,8 @@ button:hover {
 }
 
 .cohort-column {
-    min-width: 300px;
+    flex: 1;
+    min-width: 150px;
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -370,6 +371,30 @@ button:hover {
     z-index: 500;
     box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     pointer-events: none;
+}
+
+.img-placeholder {
+    cursor: crosshair;
+    color: #718096;
+    font-size: 8px;
+}
+
+#image-tooltip {
+    display: none;
+    position: fixed;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    padding: 8px;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+#image-tooltip img {
+    max-width: 320px;
+    max-height: 320px;
+    display: block;
 }
 
 /* ═══ 7. MAGNIFIER ═══ */

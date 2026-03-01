@@ -16,7 +16,8 @@ function initMagnifier() {
     if (!container) return;
 
     container.addEventListener('mousemove', onMagnifierMouseMove);
-    container.addEventListener('mouseleave', hideMagnifier);
+    container.addEventListener('mousemove', onImageMouseMove);
+    container.addEventListener('mouseleave', () => { hideMagnifier(); hideImageTooltip(); });
 
     console.log('✅ Magnifier bereit');
 }
@@ -239,6 +240,50 @@ function positionMagnifier(x, y) {
         top = y - tooltip.offsetHeight - offset;
     }
 
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+}
+
+/**
+ * MouseMove-Handler für img-placeholder
+ */
+function onImageMouseMove(e) {
+    const placeholder = e.target.closest('.img-placeholder');
+    if (!placeholder) {
+        hideImageTooltip();
+        return;
+    }
+    const src = placeholder.dataset.src;
+    if (!src) { hideImageTooltip(); return; }
+    showImageTooltip(src, e.clientX, e.clientY);
+}
+
+function showImageTooltip(src, x, y) {
+    const tooltip = document.getElementById('image-tooltip');
+    const img = document.getElementById('image-tooltip-img');
+    if (!tooltip || !img) return;
+    img.src = src;
+    tooltip.style.display = 'block';
+    positionImageTooltip(x, y);
+}
+
+function hideImageTooltip() {
+    const tooltip = document.getElementById('image-tooltip');
+    if (tooltip) tooltip.style.display = 'none';
+}
+
+function positionImageTooltip(x, y) {
+    const tooltip = document.getElementById('image-tooltip');
+    const offset = 20;
+    const padding = 10;
+    let left = x + offset;
+    let top = y + offset;
+    if (left + tooltip.offsetWidth > window.innerWidth - padding) {
+        left = x - tooltip.offsetWidth - offset;
+    }
+    if (top + tooltip.offsetHeight > window.innerHeight - padding) {
+        top = y - tooltip.offsetHeight - offset;
+    }
     tooltip.style.left = left + 'px';
     tooltip.style.top = top + 'px';
 }
