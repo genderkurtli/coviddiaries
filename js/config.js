@@ -23,14 +23,15 @@ const cohortColors = {
 // ═══ TAG-FARBEN ═══
 // Farben für manuell getaggte Passagen <EMOTIONS>...</EMOTIONS>
 const tagColors = {
-    'EMOTIONS': '#ebc952',
-    'EMPLOYMENT': '#cfc25c',
-    'ACTIVITIES': '#b0bd63',
-    'RELATIONS': '#94b56e',
-    'DIGITAL': '#75b078',
-    'ROUTINE': '#59ab82',
-    'SCHOOL': '#a2eada',
-    'COVIDNEWS': '#f063cf'
+    'EMOTIONS': '#ebd87d',
+    'EMPLOYMENT': '#d8e399',
+    'ACTIVITIES': '#ecac49',
+    'RELATIONS': '#ffccfb',
+    'DIGITAL': '#c291b2',
+    'ROUTINE': '#6488b3',
+    'SCHOOL': '#a4c9a5',
+    'COVIDNEWS': '#8ab5b8',
+    'FOOD': '#d49d80'
 };
 
 // ═══ KEYWORD-THEMES ═══
