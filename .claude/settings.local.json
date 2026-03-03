@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for id in 1813 1845 1851 1855 1866)",
+      "Bash(do echo \"=== ID $id ===\" grep -o \"^$id,.*\" c:/Users/zehnd/repos/github/coviddiaries/data/diaries.csv)",
+      "Bash(for id in 1954 1957 1960 1971 2137 2190 2208)",
+      "Bash(for id in 2228 2251 2279 2315)",
+      "Bash(do echo \"=== ID $id ===\" awk -F',' -v id=\"$id\" '$1==id' c:/Users/zehnd/repos/github/coviddiaries/data/diaries.csv)",
+      "Read(//c/Users/zehnd/repos/github/coviddiaries/**)",
+      "Bash(awk 'NR==135' data/diaries.csv)",
+      "Bash(awk 'NR==101' data/diaries.csv)",
+      "Bash(awk 'NR>=102 && NR<=165' data/diaries.csv)",
+      "Bash(awk 'NR>=150 && NR<=165' data/diaries.csv)",
+      "Bash(powershell -Command \":*)"
+    ]
+  }
+}

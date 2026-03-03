@@ -22,16 +22,31 @@ const cohortColors = {
 
 // ═══ TAG-FARBEN ═══
 // Farben für manuell getaggte Passagen <EMOTIONS>...</EMOTIONS>
+// const tagColors = {
+//     'EMOTIONS': '#ebd87d',
+//     'EMPLOYMENT': '#d8e399',
+//     'ACTIVITIES': '#ecac49',
+//     'RELATIONS': '#ffccfb',
+//     'DIGITAL': '#c291b2',
+//     'ROUTINE': '#6488b3',
+//     'SCHOOL': '#a4c9a5',
+//     'COVIDNEWS': '#8ab5b8',
+//     'FOOD': '#d49d80'
+// };
+
+// Kontraststarke, klar trennbare Palette (kein Fast-Weiss)
 const tagColors = {
-    'EMOTIONS': '#ebd87d',
-    'EMPLOYMENT': '#d8e399',
-    'ACTIVITIES': '#ecac49',
-    'RELATIONS': '#ffccfb',
-    'DIGITAL': '#c291b2',
-    'ROUTINE': '#6488b3',
-    'SCHOOL': '#a4c9a5',
-    'COVIDNEWS': '#8ab5b8',
-    'FOOD': '#d49d80'
+    'EMOTIONS':   '#1B1F3B',  // tiefes blau
+    'EMPLOYMENT': '#0B6E4F',  // sattes grün
+    'ACTIVITIES': '#8B1E3F',  // dunkles magenta
+
+    'RELATIONS':  '#F46036',  // kräftiges orange
+    'DIGITAL':    '#2E86AB',  // klares blau
+    'ROUTINE':    '#A23B72',  // kräftiges pink
+
+    'SCHOOL':     '#F6AE2D',  // starkes gelb
+    'COVIDNEWS':  '#3D348B',  // violett
+    'FOOD':       '#6A994E'   // sattes oliv
 };
 
 // ═══ KEYWORD-THEMES ═══

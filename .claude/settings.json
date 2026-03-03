@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for id in 2454 2555 2741 3111)",
+      "Read(//c/Users/zehnd/repos/github/coviddiaries/**)",
+      "Bash(for id in 3284 3362 3393 3410 3468 3493)",
+      "Read(//c/Users/zehnd/.claude/projects/c--Users-zehnd-repos-github-coviddiaries/memory/**)",
+      "Bash(awk 'NR>=52 && NR<=61' data/diaries.csv)",
+      "Bash(awk 'NR>=62 && NR<=80' data/diaries.csv)",
+      "Bash(awk 'NR>=81 && NR<=110' data/diaries.csv)",
+      "Bash(awk 'NR>=111 && NR<=165' data/diaries.csv)",
+      "Bash(awk 'NR==142' c:/Users/zehnd/repos/github/coviddiaries/data/diaries.csv)",
+      "Bash(awk 'NR>=143 && NR<=165' c:/Users/zehnd/repos/github/coviddiaries/data/diaries.csv)",
+      "Bash(awk 'NR>=158 && NR<=165' c:/Users/zehnd/repos/github/coviddiaries/data/diaries.csv)",
+      "Bash(powershell -Command \":*)",
+      "Bash(python3 -c \":*)"
+    ]
+  }
+}
