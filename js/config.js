@@ -36,17 +36,15 @@ const cohortColors = {
 
 // Kontraststarke, klar trennbare Palette (kein Fast-Weiss)
 const tagColors = {
-    'EMOTIONS':   '#1B1F3B',  // tiefes blau
-    'EMPLOYMENT': '#0B6E4F',  // sattes grün
-    'ACTIVITIES': '#8B1E3F',  // dunkles magenta
-
-    'RELATIONS':  '#F46036',  // kräftiges orange
-    'DIGITAL':    '#2E86AB',  // klares blau
-    'ROUTINE':    '#A23B72',  // kräftiges pink
-
-    'SCHOOL':     '#F6AE2D',  // starkes gelb
-    'COVIDNEWS':  '#3D348B',  // violett
-    'FOOD':       '#6A994E'   // sattes oliv
+  COVIDNEWS:  '#232778', // dunkelblau
+  SCHOOL:     '#01605A', // teal
+  ACTIVITIES: '#8B1E3F', // bordeaux
+  FOOD:       '#FF862D', // orange
+  ROUTINE:    '#256FAE', // blau
+  RELATIONS:  '#B93B72', // pink/magenta
+  DIGITAL:    '#F6B82D', // gelb
+  EMOTIONS:   '#65348B', // violett
+  EMPLOYMENT: '#77944E', // grün
 };
 
 // ═══ KEYWORD-THEMES ═══
@@ -116,6 +114,11 @@ const keywordThemes = {
         color: '#dfc6a2ff',
         keywords: ['call', 'chat', 'zoom', 'whatsapp', 'email', 'meet', 'phone', 'talk', 'visit', 'message', 'skype'],
         label: 'communication'
+    },
+    'animals': {
+        color: '#dfc6a2ff',
+        keywords: ['pet', 'pets', 'mouse','tortoise', 'cow', 'bird','animal', 'animals', 'cat', 'kitten', 'dog', 'dogs', 'jack russell', 'swarm', 'beagle', 'lurcher', 'greyhound', 'saluki', 'fish', 'birds', 'sparrows', 'blackbird', 'larks', 'sheep', 'bee', 'bees', 'parakeets'],
+        label: 'animals'
     }
 };
 

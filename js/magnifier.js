@@ -185,7 +185,7 @@ function getContext(diaryId, word) {
 
     slice.forEach(({ word: w, tagName }) => {
         if (tagName && tagColors[tagName] && isTagActive(tagName)) {
-            html += `<span style="background-color:${tagColors[tagName]}">${w}</span> `;
+            html += `<span style="background-color:${tagColors[tagName]}; color:#fff; padding:0 3px; border-radius:0px;">${w}</span> `;
         } else {
             html += w + ' ';
         }
