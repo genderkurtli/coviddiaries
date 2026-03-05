@@ -243,7 +243,8 @@ function highlightText(text) {
             theme.keywords.forEach(word => {
                 const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 const regex = new RegExp(`(<[^>]*>)|(\\b${escapedWord}\\b)`, 'gi');
-                const fontSize = getKeywordFontSize(word, currentState.selectedKeyword);
+                // const fontSize = getKeywordFontSize(word, currentState.selectedKeyword); // variable size by frequency
+                const fontSize = 18; // fixed size – revert by uncommenting line above and removing this line
                 result = result.replace(regex, (_match, htmlTag, keyword) => {
                     if (htmlTag) return htmlTag;
                     return `<mark class="keyword-highlight" style="font-size:${fontSize}px;">${keyword}</mark>`;

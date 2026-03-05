@@ -62,7 +62,7 @@ const keywordThemes = {
     },
     'bad feelings': {
         color: 'rgb(221, 195, 189)',
-        keywords: ['fear', 'grief', 'guilt', 'worried', 'worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult', 'longing', 'sad', 'stress', 'tired', 'frustrated', 'bored', 'boring', 'depressed'],
+        keywords: ['fear', 'grief','nervous', 'guilt', 'worried', 'worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult', 'longing', 'sad', 'stress', 'tired', 'frustrated', 'bored', 'boring', 'depressed'],
         label: 'bad feelings'
     },
     'good feelings': {
@@ -119,6 +119,20 @@ const keywordThemes = {
         color: '#dfc6a2ff',
         keywords: ['pet', 'pets', 'mouse','tortoise', 'cow', 'bird','animal', 'animals', 'cat', 'kitten', 'dog', 'dogs', 'jack russell', 'swarm', 'beagle', 'lurcher', 'greyhound', 'saluki', 'fish', 'birds', 'sparrows', 'blackbird', 'larks', 'sheep', 'bee', 'bees', 'parakeets'],
         label: 'animals'
+    },
+    'jobs': {
+        color: '#7a6652',
+        keywords: [
+            'retired', 'retirement', 'furlough', 'furloughed', 'unemployed',
+            'nurse', 'doctor', 'teacher', 'headteacher', 'engineer', 'manager', 'counsellor',
+            'psychologist', 'therapist', 'tutor', 'lecturer', 'researcher', 'care worker',
+            'consultant', 'librarian', 'lawyer', 'solicitor', 'barrister', 'surgeon', 'pharmacist',
+            'midwife', 'accountant', 'civil servant', 'secretary', 'director', 'administrator',
+            'scientist', 'cleaner', 'architect',
+            'self-employed', 'freelance', 'contractor', 'volunteer',
+            'part-time', 'full-time', 'colleague', 'employer', 'career', 'profession'
+        ],
+        label: 'jobs'
     }
 };
 

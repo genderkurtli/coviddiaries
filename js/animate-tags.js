@@ -39,8 +39,7 @@ function sweepTagHighlight(tagName) {
     sweepState.isRunning = true;
     sweepState.timeouts = [];
 
-    // Delay pro Span (schnell = Sweep-Effekt)
-    const delayPerSpan = 15; // ms
+    const delayPerSpan = 10; // ms – vorher 15
 
     sorted.forEach((span, i) => {
         const timeout = setTimeout(() => {
@@ -77,7 +76,7 @@ function sweepTagClear(tagName) {
     sweepState.isRunning = true;
     sweepState.timeouts = [];
 
-    const delayPerSpan = 15;
+    const delayPerSpan = 10;
 
     sorted.forEach((span, i) => {
         const timeout = setTimeout(() => {

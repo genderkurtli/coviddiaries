@@ -41,22 +41,18 @@ body {
     font-weight: 550;
     line-height: 1;
     color: #1a1a1a;
-    padding-left: 20px;
 }
 .header-subtitle {
     font-size: 80px;
     font-weight: 300;
     line-height: 1;
     color: #1a1a1a;
-    padding-left: 20px;
-
 }
 
 .text-container {
     display: block;
     font-size: 20px;
     margin-top: 40px;
-    padding-left: 20px;
     text-align: left;
     color: #1a1a1a;
     white-space: normal;
@@ -71,6 +67,7 @@ body {
     border: 5px;
     border-style: solid;
     margin-bottom: 1em;
+    padding-left: 20px;
     padding-right: 5%;
     /*background-image: url('../images/background.jpg');
     background-size: 100% auto;
@@ -134,7 +131,7 @@ h1 {
 }
 
 #filterContainer {
-    padding-left: 7px;
+    padding-left: 20px;
 
 }
 
@@ -248,7 +245,7 @@ button:hover {
     display: flex;
     flex-direction: row;  /* ← NEU! Untereinander */
     gap: 7px;
-    padding: 7px;
+    padding: 7px 7px 7px 20px;
     align-items: flex-start;
     overflow-x: auto;
     max-width: 100%;
