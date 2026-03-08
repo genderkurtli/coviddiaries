@@ -107,8 +107,6 @@ body {
 /* ═══ 2. HEADER & CONTROLS ═══ */
 
 #headerContainer {
-    border: 5px;
-    border-style: solid;
     margin-bottom: 1em;
     padding-left: 20px;
     padding-right: 5%;
@@ -176,7 +174,22 @@ h1 {
 
 #filterContainer {
     padding-left: 20px;
+}
 
+.header-body {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.filter-hint {
+    padding: 4px 0 8px;
+    font-size: 20px;
+    color: rgb(222, 22, 99);
+}
+
+.info-bar a.info-bar-link {
+    color: inherit;
+    text-decoration: underline;
 }
 
 /* ═══ 3. BUTTONS ═══ */
