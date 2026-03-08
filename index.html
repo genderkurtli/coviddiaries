@@ -14,148 +14,44 @@
     <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.7/build/d3.layout.cloud.min.js"></script>
 </head>
 <body>
+    <!-- Intro Splash -->
+    <div id="intro-splash">
+        <div id="splash-word"></div>
+        <div id="splash-title"></div>
+        <div id="splash-subtitle"></div>
+    </div>
+
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- HEADER CONTAINER                                                -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <div id="headerContainer" style="border: 0px; border-style: solid;">      
         <div class="info-bar">
-            12th May 2020 <span id="diaryCount">COUNT</span> diaries Source: Mass Observation Archive
+            12th May 2020 |<span id="diaryCount">COUNT</span> diaries | Source: <a href="https://massobs.org.uk/research/covid19/" target="_blank" style="color: inherit; text-decoration: underline;">Mass Observation Archive</a>
         </div>
 
-        <div class="header-title">Everything changed over night</div>
+        <div class="header-title">Everything changed over night.</div>
 
         <div class ="header-subtitle">
-        <br> One day. 164 voices. Nine generations.</div><br>
+        <br> 
+        One day. 162 voices. Nine generations.</div>
 
-       <div class="text-container"></div> 
-       <br>
-        On this day in spring 2020, the UK was in lockdown. Schools were closed. Families were separated. Life had changed overnight.<br> 
+        <div style="margin-top: 30px; font-size: 24px;">On this day in spring 2020, the UK was in lockdown. Schools were closed. Families were separated. Life had changed overnight.<br>
         What occupied people's minds during the first COVID-19 lockdown?<br>
         <br>
-        
-        They captured their thoughts and feelings in diaries for the Mass Observation Archive.<br>
- <br>
-        Explore their emotions, routines, and relationships. <br>
-        Discover patterns across age groups. <br>
-        Let the colours guide you.<br>
- <br>
-        ↓ Choose a theme to highlight words across all diaries<br>
-        ↓ Click tags to see patterns emerge<br>
-        ↓ Compare experiences across decades<br>
+        They captured their thoughts and feelings in diaries for the Mass Observation Archive.</div>
         </div>
     </div>
 
-   <!-- <svg id="cirrus_88" class="cirrusGraph" width="833" height="657" version="1.1" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g transform="translate(416.5, 328.5) scale(0.9024918675422668,0.9024918675422668)"><text text-anchor="middle"
-                data-freq="528" transform="translate(-118, -15) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(0, 255, 0); font-size: 147.09px;">work</text><text
-                text-anchor="middle" data-freq="477" transform="translate(144, 121)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 135.985px;">day</text><text
-                text-anchor="middle" data-freq="463" transform="translate(264, 132) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 127.75px;">time</text><text
-                text-anchor="middle" data-freq="362" transform="translate(117, -68) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 115.823px;">home</text><text
-                text-anchor="middle" data-freq="338" transform="translate(-184, -4) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 104.096px;">lockdown</text><text
-                text-anchor="middle" data-freq="348" transform="translate(151, -160) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 102.973px;">people</text><text
-                text-anchor="middle" data-freq="308" transform="translate(152, 5)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 91.6209px;">today</text><text
-                text-anchor="middle" data-freq="298" transform="translate(95, -289) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(33, 54, 33); font-size: 83.1451px;">like</text><text
-                text-anchor="middle" data-freq="263" transform="translate(230, -243)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(102, 102, 102); font-size: 72.9878px;">just</text><text
-                text-anchor="middle" data-freq="249" transform="translate(-15, 162) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 73.1884px;">years</text><text
-                text-anchor="middle" data-freq="230" transform="translate(134, 189)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 66.7123px;">school</text><text
-                text-anchor="middle" data-freq="212" transform="translate(-228, -136) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 61.9258px;">went</text><text
-                text-anchor="middle" data-freq="218" transform="translate(-17, -221) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 60.8945px;">year</text><text
-                text-anchor="middle" data-freq="199" transform="translate(147, 231) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 56.1183px;">i’m</text><text
-                text-anchor="middle" data-freq="200" transform="translate(350, -14) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 53.8251px;">going</text><text
-                text-anchor="middle" data-freq="190" transform="translate(-231, 38)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 51.1646px;">bed</text><text
-                text-anchor="middle" data-freq="196" transform="translate(-225, 83) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 50.526px;">old</text><text
-                text-anchor="middle" data-freq="190" transform="translate(-284, -19) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(102, 102, 102); font-size: 49.962px;">working</text><text
-                text-anchor="middle" data-freq="188" transform="translate(-26, 5) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 45.0498px;">really</text><text
-                text-anchor="middle" data-freq="180" transform="translate(-54, -260)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(106, 151, 106); font-size: 45.9438px;">good</text><text
-                text-anchor="middle" data-freq="170" transform="translate(237, 166) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 42.5206px;">week</text><text
-                text-anchor="middle" data-freq="175" transform="translate(315, -105) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 41.4583px;">doing</text><text
-                text-anchor="middle" data-freq="171" transform="translate(-298, -73) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 37.2997px;">friends</text><text
-                text-anchor="middle" data-freq="162" transform="translate(279, -107) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 37.3646px;">make</text><text
-                text-anchor="middle" data-freq="166" transform="translate(-263, 121)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 36.9796px;">morning</text><text
-                text-anchor="middle" data-freq="169" transform="translate(15, 31) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 35.6061px;">it’s</text><text
-                text-anchor="middle" data-freq="155" transform="translate(356, -103) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(102, 102, 102); font-size: 35.2212px;">mum</text><text
-                text-anchor="middle" data-freq="163" transform="translate(151, 34)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 33.0652px;">think</text><text
-                text-anchor="middle" data-freq="160" transform="translate(94, 216) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 31.7773px;">things</text><text
-                text-anchor="middle" data-freq="155" transform="translate(-308, 65)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 30.7686px;">house</text><text
-                text-anchor="middle" data-freq="150" transform="translate(-87, 72)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 29.2967px;">new</text><text
-                text-anchor="middle" data-freq="152" transform="translate(340, 113) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 27.506px;">lunch</text><text
-                text-anchor="middle" data-freq="152" transform="translate(3, -17) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 25.6569px;">live</text><text
-                text-anchor="middle" data-freq="148" transform="translate(-209, 169) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 24.1281px;">family</text><text
-                text-anchor="middle" data-freq="147" transform="translate(179, 94) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 23.9393px;">wife</text><text
-                text-anchor="middle" data-freq="147" transform="translate(-78, 164) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 23.7283px;">read</text><text
-                text-anchor="middle" data-freq="147" transform="translate(377, 35)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(102, 102, 102); font-size: 24.1686px;">having</text><text
-                text-anchor="middle" data-freq="144" transform="translate(220, 50) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 22.726px;">days</text><text
-                text-anchor="middle" data-freq="143" transform="translate(-118, -202) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 22.1167px;">walk</text><text
-                text-anchor="middle" data-freq="141" transform="translate(-92, -20) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 17.3326px;">bit</text><text
-                text-anchor="middle" data-freq="140" transform="translate(163, -92) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 16.6203px;">lot</text><text
-                text-anchor="middle" data-freq="135" transform="translate(99, 78) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 14.0899px;">breakfast</text><text
-                text-anchor="middle" data-freq="130" transform="translate(-47, 17) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(102, 102, 102); font-size: 12px;">tea</text><text
-                text-anchor="middle" data-freq="127" transform="translate(153, 146)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(127, 201, 127); font-size: 12px;">long</text><text
-                text-anchor="middle" data-freq="125" transform="translate(-69, -29) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(190, 174, 212); font-size: 12px;">know</text><text
-                text-anchor="middle" data-freq="124" transform="translate(-112, -69) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(253, 192, 134); font-size: 12px;">garden</text><text
-                text-anchor="middle" data-freq="123" transform="translate(63, -50)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(255, 255, 153); font-size: 12px;">weeks</text><text
-                text-anchor="middle" data-freq="123" transform="translate(-288, 6) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(56, 108, 176); font-size: 12px;">living</text><text
-                text-anchor="middle" data-freq="123" transform="translate(128, -87) rotate(90)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(240, 2, 127); font-size: 12px;">covid</text><text
-                text-anchor="middle" data-freq="121" transform="translate(-165, 179) rotate(0)"
-                style="font-family: Verdana, Geneva, sans-serif; fill: rgb(191, 91, 23); font-size: 12px;">reading</text>
-        </g>
-    </svg>-->
-
-   
+     
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- FILTER CONTAINER                                                -->
     <!-- ═══════════════════════════════════════════════════════════════ -->  
     <div id="filterContainer" style="border: 0px; border-style: solid;">
+        <!-- Hinweistext Keywords -->
+        <div style="padding: 4px 0 8px; font-size: 20px; color: #444343;">
+            ↓ Choose a theme to highlight words across all diaries
+        </div>
+
         <!-- Keyword Filters -->
         <div class="controls">
             <span class="filter-label">Keywords</span>
@@ -170,6 +66,12 @@
             <span class="stat" id="animationStatus"></span>
         </div>
         -->
+
+        <!-- Hinweistext -->
+        <div style="padding: 4px 0 8px; font-size: 20px; color: #322424;">
+            ↓ Click tags to see patterns emerge<br>
+            ↓ Compare experiences across decades. Let the colours guide you.<br>
+        </div>
 
         <!-- Tag Filters -->
         <div class="controls">
@@ -214,8 +116,15 @@
     <!-- 6. Magnifier -->
     <script src="js/magnifier.js"></script>
 
-    <!-- 7. Keyword Word Cloud -->
+    <!-- 7. Keyword Word Cloud (auskommentiert)
     <script src="js/keyword-cloud.js"></script>
+    -->
+
+    <!-- 8. Intro Splash -->
+    <script src="js/intro-splash.js"></script>
+
+    <!-- 9. Map Tooltip -->
+    <script src="js/map-tooltip.js"></script>
 
     <!-- Keyword Word Cloud Tooltip -->
     <div id="keyword-cloud-tooltip"></div>
@@ -224,6 +133,15 @@
     <div id="magnifier">
         <div id="magnifier-meta"></div>
         <div id="magnifier-text"></div>
+    </div>
+
+    <!-- Map Tooltip (beim Hovern über Location) -->
+    <div id="map-tooltip">
+        <div class="map-img-wrap">
+            <img src="images/uk-map.png" alt="UK Map">
+            <div id="map-dot"></div>
+        </div>
+        <div id="map-tooltip-label"></div>
     </div>
 
     <!-- Image Tooltip (beim Hovern über ▣) -->
