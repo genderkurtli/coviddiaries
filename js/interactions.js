@@ -50,36 +50,6 @@ function renderKeywordButtons() {
     });
 }
 
-// ═══ COHORT BUTTONS ═══
-
-function renderCohortButtons() {
-    const container = document.getElementById('cohortButtons');
-    container.innerHTML = '';
-    
-    // Sammle alle Cohorten
-    const cohorts = [...new Set(diaryData.map(d => d.cohort))].sort();
-    
-    // "Alle" Button
-    const allBtn = createButton('all', currentState.selectedCohort === null);
-    allBtn.onclick = () => {
-        currentState.selectedCohort = null;
-        renderCohortButtons();
-        renderDiaries();
-    };
-    container.appendChild(allBtn);
-    
-    // Cohort Buttons
-    cohorts.forEach(cohort => {
-        const btn = createButton(cohort, currentState.selectedCohort === cohort);
-        btn.onclick = () => {
-            currentState.selectedCohort = cohort;
-            renderCohortButtons();
-            renderDiaries();
-        };
-        container.appendChild(btn);
-    });
-}
-
 // ═══ TAG BUTTONS ═══
 
 function renderTagButtons() {
@@ -121,11 +91,6 @@ function renderTagButtons() {
             btn.style.borderWidth = '3px';
             btn.textContent = tag
              btn.innerHTML = `${tag} <span>☀</span>`;
-        } else if (state === 'extract') {
-            btn.style.backgroundColor = color;
-            btn.style.color = 'white';
-            btn.style.borderWidth = '3px';
-            btn.innerHTML = `${tag} <span>✀</span>`;
         } else { // clean
             btn.style.backgroundColor = color;
             btn.style.color = 'white';
@@ -139,10 +104,8 @@ function renderTagButtons() {
         
         // Hover Effects
         btn.onmouseenter = () => {
-            if (state !== 'extract') {
-                btn.style.backgroundColor = color;
-                btn.style.color = 'white';
-            }
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
         };
         btn.onmouseleave = () => {
             if (state === 'highlight') {
@@ -167,33 +130,14 @@ function cycleTagState(tag) {
     if (currentTagState === 'clean') {
         // CLEAN → HIGHLIGHT (mit Sweep-Animation)
         currentState.tagStates[tag] = 'highlight';
-        currentState.viewMode = 'grid';
         renderTagButtons();
         sweepTagHighlight(tag);
 
-    } else { // highlight
-        // HIGHLIGHT → CLEAN
+    } else { // highlight → CLEAN
         currentState.tagStates[tag] = 'clean';
-        currentState.viewMode = 'grid';
         renderTagButtons();
         renderDiaries();
     }
-
-    /* EXTRACT-Zustand auskommentiert (nicht nötig solange Magnifier aktiv)
-    } else if (currentTagState === 'highlight') {
-        currentState.tagStates[tag] = 'extract';
-        currentState.selectedTag = tag;
-        currentState.viewMode = 'extract';
-        renderTagButtons();
-        renderDiaries();
-    } else { // extract
-        currentState.tagStates[tag] = 'clean';
-        currentState.selectedTag = null;
-        currentState.viewMode = 'grid';
-        renderTagButtons();
-        renderDiaries();
-    }
-    */
 }
 
 // ═══ ZOOM ═══

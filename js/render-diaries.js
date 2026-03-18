@@ -10,10 +10,7 @@
 // Aktueller State
 let currentState = {
     selectedKeyword: null,
-    selectedCohort: null,
-    selectedTag: null,
-    tagStates: {},  // 'clean', 'highlight', 'extract'
-    viewMode: 'grid'  // 'grid' oder 'extract'
+    tagStates: {},  // 'clean', 'highlight'
 };
 
 /**
@@ -28,19 +25,7 @@ function renderDiaries() {
     const container = document.getElementById('diaryContainer');
     container.innerHTML = '';
     
-    // Extract-View oder Grid-View?
-    if (currentState.viewMode === 'extract' && currentState.selectedTag) {
-        renderExtractView();
-        return;
-    }
-    
-    // Filtere Diaries
-    let filtered = diaryData.filter(d => {
-        if (currentState.selectedCohort && d.cohort !== currentState.selectedCohort) {
-            return false;
-        }
-        return true;
-    });
+    let filtered = diaryData;
     
     // Gruppiere nach Cohort
     const byCohort = {};
@@ -96,7 +81,7 @@ function createCohortColumn(cohort, diaries) {
     const header = document.createElement('div');
     header.className = 'cohort-header';
     header.style.borderBottomColor = cohortColors[cohort] || '#cbd5e0';
-    header.textContent = `${cohort} (${diaries.length})`;
+    header.textContent = `born in the ${cohort}`;
     column.appendChild(header);
     
     // Diaries
@@ -275,85 +260,3 @@ function extractTags(text) {
     return tags;
 }
 
-/**
- * Rendert Extract-View
- */
-function renderExtractView() {
-    const container = document.getElementById('diaryContainer');
-    container.innerHTML = '';
-    container.className = 'extract-container';
-    
-    // Zurück-Button
-    const backBtn = document.createElement('button');
-    backBtn.className = 'back-btn';
-    backBtn.textContent = '← back to all diaries';
-    backBtn.onclick = () => {
-        currentState.viewMode = 'grid';
-        if (currentState.selectedTag) {
-            currentState.tagStates[currentState.selectedTag] = 'clean';
-        }
-        currentState.selectedTag = null;
-        renderTagButtons();
-        renderDiaries();
-    };
-    container.appendChild(backBtn);
-    
-    // Extrahiere Passagen
-    const passages = [];
-    diaryData.forEach(diary => {
-        const tags = extractTags(diary.text);
-        tags.forEach(({tag, content}) => {
-            if (tag === currentState.selectedTag) {
-                passages.push({
-                    diaryId: diary.id,
-                    cohort: diary.cohort,
-                    age: diary.age,
-                    gender: diary.gender,
-                    location: diary.location,
-                    content: content
-                });
-            }
-        });
-    });
-    
-    // Render Passagen
-    const section = document.createElement('div');
-    section.className = 'extract-tag-section';
-    
-    const color = tagColors[currentState.selectedTag] || '#cbd5e0';
-    
-    const header = document.createElement('div');
-    header.className = 'extract-tag-header';
-    header.style.borderBottomColor = color;
-    header.textContent = `${currentState.selectedTag} (${passages.length} passages)`;
-    section.appendChild(header);
-    
-    passages.forEach(passage => {
-        const passageDiv = document.createElement('div');
-        passageDiv.className = 'extract-passage';
-        passageDiv.style.borderLeftColor = color;
-        
-        const meta = document.createElement('div');
-        meta.className = 'extract-meta';
-        const metaParts = [
-            `#${passage.diaryId}`,
-            passage.cohort,
-            passage.age ? passage.age + 'y' : null,
-            passage.gender,
-            passage.location
-        ].filter(Boolean);
-        meta.textContent = metaParts.join(' • ');
-        
-        const text = document.createElement('div');
-        text.className = 'extract-text';
-        text.textContent = passage.content;
-        
-        passageDiv.appendChild(meta);
-        passageDiv.appendChild(text);
-        section.appendChild(passageDiv);
-    });
-    
-    container.appendChild(section);
-    
-    console.log(`✅ Extract-View: ${passages.length} Passagen für ${currentState.selectedTag}`);
-}
