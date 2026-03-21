@@ -13,6 +13,8 @@ An interactive visualisation of 162 diary entries written on 12 May 2020 for the
 
 Diary entries are sourced from the Mass Observation Archive and stored in `data/diaries.csv`. Each passage is tagged by theme using XML-style tags (e.g. `<EMOTIONS>…</EMOTIONS>`).
 
+> Mass Observation Archive, University of Sussex. Used under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
 ## Running locally
 
 The project is plain HTML/CSS/JavaScript — no build step required. Because the data is loaded from a CSV file, you need a local server:
