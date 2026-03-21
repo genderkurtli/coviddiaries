@@ -56,7 +56,8 @@ function initializeApp() {
     console.log('🚀 Initialisiere App...');
     
     // Update Counter
-    document.getElementById('diaryCount').textContent = diaryData.length;
+    const countEl = document.getElementById('diaryCount');
+    if (countEl) countEl.textContent = diaryData.length;
     
     // Render Filter-Buttons
     renderKeywordButtons();
