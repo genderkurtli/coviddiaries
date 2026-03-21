@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Everything changed overnight</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-wrap {
+            max-width: 720px;
+            padding: 40px 20px 80px 20px;
+        }
+        .about-back {
+            font-size: 20px;
+            font-weight: 300;
+            color: #1a1a1a;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 60px;
+        }
+        .about-back:hover { opacity: 0.5; }
+        .about-title {
+            font-size: clamp(48px, 10vw, 160px);
+            font-weight: 550;
+            line-height: 1;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        .about-subtitle {
+            font-size: clamp(18px, 3.5vw, 48px);
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .about-byline {
+            font-size: 16px;
+            color: #6f6767;
+            margin-bottom: 60px;
+        }
+        .about-section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #1a1a1a;
+            margin: 40px 0 12px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 6px;
+        }
+        .about-section p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        .about-section a {
+            color: inherit;
+            text-decoration: underline;
+        }
+        .about-footer {
+            margin-top: 60px;
+            font-size: 14px;
+            color: #6f6767;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-wrap">
+
+        <a href="index.html" class="about-back">← back</a>
+
+        <div class="about-title">Everything changed overnight.</div>
+        <div class="about-subtitle">Visualizing Covid diaries</div>
+        <div class="about-byline">Project documentation | 11 March 2026 | Dr. Kathrin Zehnder</div>
+
+        <div class="about-section">
+
+            <h2>Objective and research question</h2>
+            <p>The project visualizes everyday experiences during the lockdown in the UK on 12 May 2020. The aim was to create a visual representation of a large body of text without reducing its complexity and to create an overview through graphical elements. This makes it possible to identify themes that concerned the writers and patterns across different age groups (cohorts).</p>
+
+            <h2>Data</h2>
+            <p>The Covid-19 Collection of the <a href="https://massobs.org.uk/research/covid19/" target="_blank">Mass Observation Archive</a> contains around 4,300 entries. From these, 162 diary entries were selected, written by people from nine generations with different genders and places of residence.</p>
+
+            <h2>Qualitative and quantitative analysis</h2>
+            <p>For each cohort, one text was read closely and nine categories of central importance were extracted. With the help of Claude.ai, all 162 diaries were then systematically categorized and assigned machine-readable tags.</p>
+            <p>Using Voyant Tools, word frequencies were analysed. These frequencies, together with the author's personal interests, served as the basis for defining 16 keywords.</p>
+
+            <h2>Coding and visualization</h2>
+            <p>The technical implementation was carried out in Visual Studio Code, largely with the assistance of Claude.ai, with version control and website hosting via GitHub.</p>
+            <p>A grid with one column per cohort contains all texts of the dataset. Each entry includes ID, age, gender and location.</p>
+            <p>Each category is assigned a colour. The code defines that tagged passages are highlighted in the corresponding colour. A magnifier function allows the text passage to be read when hovering over it. Images from the diaries become visible when hovering over the corresponding icon (▣).</p>
+            <p>The defined keywords appear highlighted when clicking a button. Word frequencies per keyword are shown below the buttons. The seven most frequent words were used as the introduction for the website.</p>
+            <p>Location data was mapped using Foursquare Studio and implemented as a hover function that displays the author's place of residence on a UK map.</p>
+
+            <h2>Findings and outlook</h2>
+            <p>The seven most frequent words — work (528), day (477), time (463), home (362), people (348), lockdown (338), today (308) — already tell a story in themselves: working from home, the restriction of mobility, the prohibition of contact with loved ones, and the large amount of time that people spent during this day in lockdown.</p>
+            <p>Almost all text passages could be assigned to the nine categories — an indication that the selected themes reached a sufficient level of saturation.</p>
+            <p>The colour differences between categories make patterns across generations visible, for example a concentration of EMOTIONS in the 1990s cohort and noticeably few descriptions of RELATIONS in the 1950s cohort. Food played a role for all generations during lockdown. News about the pandemic (COVIDNEWS) decreases in importance from older to younger generations.</p>
+            <p>Because the categorization was carried out automatically using AI tools, the current findings do not meet scientific standards. However, the created grid and the proposed visualizations could help interested members of the public or the Mass Observation Archive to categorize and visualize diary entries and gain insights into their content. A quantitative analysis of the entire dataset of around 4,300 entries would likely be very informative.</p>
+            <p>Working with different applications, learning various programming and visualization tools, and choosing a text-based dataset represented both a major challenge and an intensive learning experience for the author.</p>
+
+        </div>
+
+        <div class="about-footer">
+            Mass Observation Archive, University of Sussex. Used under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.<br>
+            The Mass Observation Archive was founded in 1937 for the coronation of King George VI. Since then, volunteers have submitted diary entries every year on 12 May.
+        </div>
+
+    </div>
+</body>
+</html>
