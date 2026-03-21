@@ -47,7 +47,7 @@ function runIntroSplash() {
         }
 
         const { word, color, count } = splashWords[i];
-        wordEl.innerHTML = `${word}<sup style="font-size:20px; font-weight:400; vertical-align:super; margin-left:10px; opacity:0.7">${count}</sup>`;
+        wordEl.innerHTML = `${word}<sup style="font-size:36px; font-weight:600 vertical-align:super; margin-left:10px; opacity:0.7">${count}</sup>`;
         wordEl.style.color = color;
 
         wordEl.style.opacity = '0';
@@ -109,7 +109,7 @@ function runIntroSplash() {
                     subtitleEl.style.fontWeight = cs.fontWeight;
                     subtitleEl.style.lineHeight = cs.lineHeight;
                 }
-                const msPause = 600; // Pause nach "One day." und "164 voices." – hier spielen
+                const msPause = 600; // Pause nach "One day." und "162 voices." – hier spielen
                 typeWriter(subtitleEl, 'One day.', () => {
                     setTimeout(() => {
                         typeWriter(subtitleEl, ' 162 voices.', () => {

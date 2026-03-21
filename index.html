@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"="width=device-width, initial-scale=1.0">
     <title>COVID DIARIES • 12th May 2020</title>
-    
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- D3.js Library für Animationen -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <!-- D3-Cloud für Word Clouds -->
     <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.7/build/d3.layout.cloud.min.js"></script>
 </head>
+
 <body>
     <!-- Intro Splash -->
     <div id="intro-splash">
@@ -26,34 +28,32 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <div id="headerContainer">
         <div class="info-bar">
-            12th May 2020 |<span id="diaryCount">COUNT</span> diaries | Source: <a href="https://massobs.org.uk/research/covid19/" target="_blank" class="info-bar-link">Mass Observation Archive</a>
+            12th May 2020 |<span id="diaryCount">COUNT</span> diaries | Source: <a
+                href="https://massobs.org.uk/research/covid19/" target="_blank" class="info-bar-link">Mass Observation
+                Archive</a>
         </div>
 
         <div class="header-title">Everything changed over night.</div>
 
         <div class="header-subtitle">
-        <br>
-        One day. 162 voices. Nine generations.</div>
-
-        <div class="header-body">On this day in spring 2020, the UK was in lockdown. Schools were closed. Families were separated. Life had changed overnight.<br>
-        What occupied people's minds during the first COVID-19 lockdown?<br>
-        <br>
-        They captured their thoughts and feelings in diaries for the Mass Observation Archive.</div>
+            <br>
+            On 12 May 2020, the UK was in lockdown. Schools were closed. Families were separated.162 people captured
+            their thoughts and feelings in diaries for the Mass Observation Archive. This is what occupied their minds.
+        </div>
     </div>
 
-     
+
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- FILTER CONTAINER                                                -->
-    <!-- ═══════════════════════════════════════════════════════════════ -->  
+    <!-- ═══════════════════════════════════════════════════════════════ -->
     <div id="filterContainer">
         <!-- Hinweistext Keywords -->
         <div class="filter-hint">
-            ↓ Choose a theme to highlight words across all diaries
+            Select a topic to highlight related words across all diaries.
         </div>
 
         <!-- Keyword Filters -->
         <div class="controls">
-            <span class="filter-label">Keywords</span>
             <div id="keywordButtons"></div>
         </div>
 
@@ -68,41 +68,39 @@
 
         <!-- Hinweistext -->
         <div class="filter-hint">
-            ↓ Click tags to see patterns emerge<br>
-            ↓ Compare experiences across decades. Let the colours guide you.<br>
+           Click a tag to highlight passages on that theme across all diaries.
         </div>
 
         <!-- Tag Filters -->
         <div class="controls">
-            <span class="filter-label">Tags</span>
             <div id="tagButtons"></div>
         </div>
 
     </div>
-    
+
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- MAIN CONTENT                                                    -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <main id="diaryContainer" class="diary-grid">
         <!-- Diaries werden hier von JavaScript eingefügt -->
     </main>
-    
+
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- JAVASCRIPT - In dieser Reihenfolge laden!                        -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    
+
     <!-- 1. Konfiguration (Farben, Keywords) -->
     <script src="js/config.js"></script>
-    
+
     <!-- 2. Daten laden -->
     <script src="js/data-loader.js"></script>
-    
+
     <!-- 3. Diaries rendern -->
     <script src="js/render-diaries.js"></script>
-    
+
     <!-- 4. Interaktionen (Filter, Zoom) -->
     <script src="js/interactions.js"></script>
-    
+
     <!-- 5. Animation -->
     <script src="js/animate-tags.js"></script>
 
@@ -142,4 +140,5 @@
         <img id="image-tooltip-img" src="" alt="">
     </div>
 </body>
+
 </html>

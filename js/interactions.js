@@ -15,21 +15,11 @@ function renderKeywordButtons() {
     const container = document.getElementById('keywordButtons');
     container.innerHTML = '';
     
-    // "Clear" Button
-    const allBtn = createButton('clear', currentState.selectedKeyword === null);
-    allBtn.classList.add('keyword-btn');
-    allBtn.onclick = () => {
-        currentState.selectedKeyword = null;
-        renderKeywordButtons();
-        renderDiaries();
-    };
-    container.appendChild(allBtn);
-    
     // Keyword Buttons
     Object.keys(keywordThemes).forEach(keyword => {
         const theme = keywordThemes[keyword];
         const isActive = currentState.selectedKeyword === keyword;
-        
+
         const btn = createButton(theme.label, isActive);
         btn.classList.add('keyword-btn');
         btn.onclick = () => {
@@ -45,9 +35,20 @@ function renderKeywordButtons() {
         btn.onmouseleave = () => {
             hideKeywordCloud();
         };
-        
+
         container.appendChild(btn);
     });
+
+    // "Clear" Button — am Ende
+    const allBtn = document.createElement('button');
+    allBtn.textContent = 'clear';
+    allBtn.classList.add('keyword-btn-clear');
+    allBtn.onclick = () => {
+        currentState.selectedKeyword = null;
+        renderKeywordButtons();
+        renderDiaries();
+    };
+    container.appendChild(allBtn);
 }
 
 // ═══ TAG BUTTONS ═══
@@ -75,8 +76,19 @@ function renderTagButtons() {
         }
     });
     
+    // Farbreihenfolge: gelb → orange → pink → bordeaux → violett → dunkelblau → blau → teal → grün
+    const tagOrder = ['DIGITAL', 'FOOD', 'RELATIONS', 'ACTIVITIES', 'EMOTIONS', 'COVIDNEWS', 'ROUTINE', 'SCHOOL', 'EMPLOYMENT'];
+    const sortedTags = [...allTags].sort((a, b) => {
+        const ia = tagOrder.indexOf(a);
+        const ib = tagOrder.indexOf(b);
+        if (ia === -1 && ib === -1) return a.localeCompare(b);
+        if (ia === -1) return 1;
+        if (ib === -1) return -1;
+        return ia - ib;
+    });
+
     // Erstelle Buttons
-    [...allTags].sort().forEach(tag => {
+    sortedTags.forEach(tag => {
         const state = currentState.tagStates[tag] || 'clean';
         const color = tagColors[tag] || '#cbd5e0';// ← Farbe holen, die in config.js in den Tags definiert sind
         
@@ -119,6 +131,19 @@ function renderTagButtons() {
         
         container.appendChild(btn);
     });
+
+    // Clear-Button — am Ende
+    const clearBtn = document.createElement('button');
+    clearBtn.textContent = 'clear';
+    clearBtn.classList.add('keyword-btn-clear');
+    clearBtn.onclick = () => {
+        Object.keys(currentState.tagStates).forEach(t => {
+            currentState.tagStates[t] = 'clean';
+        });
+        renderTagButtons();
+        renderDiaries();
+    };
+    container.appendChild(clearBtn);
 }
 
 /**

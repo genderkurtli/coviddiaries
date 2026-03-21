@@ -35,45 +35,17 @@ const tagColors = {
 // ═══ KEYWORD-THEMES ═══
 // Automatische Keyword-Erkennung für Themen
 const keywordThemes = {
-    'lockdown': {
-        keywords: ['lockdown', 'stay at home', 'locked', 'shutdown', 'quarantine', 'home', 'government', 'Boris', 'restrict', 'rules'],
-        label: 'lockdown'
-    },
-    'relations': {
-        keywords: ['family', 'friend', 'kid', 'kids', 'partner', 'relative', 'mum', 'dad', 'child', 'couple', 'brother', 'sister', 'daughter', 'son', 'mother', 'wife', 'husband', 'parent', 'gran', 'neighbour', 'colleague', 'baby', 'girlfriend', 'boyfriend'],
-        label: 'relations'
-    },
-    'bad feelings': {
-        keywords: ['fear', 'grief','nervous', 'guilt', 'worried', 'worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult', 'longing', 'sad', 'stress', 'tired', 'frustrated', 'bored', 'boring', 'depressed'],
-        label: 'bad feelings'
-    },
-    'good feelings': {
-        keywords: ['hope', 'grattitude', 'hopeful', 'optimis', 'positive', 'better', 'loveley', 'lucky', 'fun', 'pretty', 'happy', 'enjoy', 'love', 'comfort', 'grateful', 'calm'],
-        label: 'good feelings'
-    },
-    'isolation': {
-        keywords: ['alone', 'isolated', 'lonely', 'solitude', 'miss', 'apart', 'separate', 'stuck', 'social distancing'],
-        label: 'isolation'
-    },
-    'routine': {
-        keywords: ['routine', 'daily', 'usual', 'normal', 'regular', 'sleep', 'wake', 'habit'],
-        label: 'routine'
-    },
-    'work': {
-        keywords: ['work', 'working', 'lesson', 'job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'studying', 'college', 'furlough', 'office', 'student', 'teach'],
-        label: 'work'
+    'communication': {
+        keywords: ['call', 'chat', 'zoom', 'whatsapp', 'email', 'meet', 'phone', 'talk', 'visit', 'message', 'skype'],
+        label: 'communication'
     },
     'food': {
         keywords: ['food', 'cup', 'eat', 'ate', 'cook', 'bake', 'tea', 'bread', 'meal', 'dinner', 'breakfast', 'lunch', 'coffee', 'shop', 'cake', 'drink', 'soup', 'fruit', 'wine'],
         label: 'food'
     },
-    'time': {
-        keywords: ['time', 'year', 'month', 'week', 'today', 'day', 'daily', 'morning', 'afternoon', 'soon', 'yesterday', 'evening', 'night', 'hour', 'minute'],
-        label: 'time'
-    },
-    'pandemic': {
-        keywords: ['pandemic', 'funeral', 'virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease', 'hospital', 'NHS', 'nurse', 'doctor', 'death'],
-        label: 'pandemic'
+    'relations': {
+        keywords: ['family', 'friend', 'kid', 'kids', 'partner', 'relative', 'mum', 'dad', 'child', 'couple', 'brother', 'sister', 'daughter', 'son', 'mother', 'wife', 'husband', 'parent', 'gran', 'neighbour', 'colleague', 'baby', 'girlfriend', 'boyfriend'],
+        label: 'relations'
     },
     'activities': {
         keywords: ['reading', 'writing', 'exercise', 'yoga', 'shopping', 'walking', 'garden', 'run', 'TV', 'music', 'film', 'Netflix'],
@@ -83,13 +55,37 @@ const keywordThemes = {
         keywords: ['room', 'home', 'house', 'bed', 'garden', 'place', 'downstairs', 'kitchen', 'outside', 'flat', 'park', 'window'],
         label: 'spaces'
     },
-    'communication': {
-        keywords: ['call', 'chat', 'zoom', 'whatsapp', 'email', 'meet', 'phone', 'talk', 'visit', 'message', 'skype'],
-        label: 'communication'
+    'good feelings': {
+        keywords: ['hope', 'grattitude', 'hopeful', 'optimis', 'positive', 'better', 'loveley', 'lucky', 'fun', 'pretty', 'happy', 'enjoy', 'love', 'comfort', 'grateful', 'calm'],
+        label: 'good feelings'
     },
-    'animals': {
-        keywords: ['pet', 'pets', 'mouse','tortoise', 'cow', 'bird','animal', 'animals', 'cat', 'kitten', 'dog', 'dogs', 'jack russell', 'swarm', 'beagle', 'lurcher', 'greyhound', 'saluki', 'fish', 'birds', 'sparrows', 'blackbird', 'larks', 'sheep', 'bee', 'bees', 'parakeets'],
-        label: 'animals'
+    'bad feelings': {
+        keywords: ['fear', 'grief','nervous', 'guilt', 'worried', 'worry', 'anxiety', 'scared', 'afraid', 'panic', 'bad', 'difficult', 'longing', 'sad', 'stress', 'tired', 'frustrated', 'bored', 'boring', 'depressed'],
+        label: 'bad feelings'
+    },
+    'isolation': {
+        keywords: ['alone', 'isolated', 'lonely', 'solitude', 'miss', 'apart', 'separate', 'stuck', 'social distancing'],
+        label: 'isolation'
+    },
+    'pandemic': {
+        keywords: ['pandemic', 'funeral', 'virus', 'covid', 'health', 'sick', 'ill', 'symptom', 'disease', 'hospital', 'NHS', 'nurse', 'doctor', 'death'],
+        label: 'pandemic'
+    },
+    'lockdown': {
+        keywords: ['lockdown', 'stay at home', 'locked', 'shutdown', 'quarantine', 'home', 'government', 'Boris', 'restrict', 'rules'],
+        label: 'lockdown'
+    },
+    'routine': {
+        keywords: ['routine', 'daily', 'usual', 'normal', 'regular', 'sleep', 'wake', 'habit'],
+        label: 'routine'
+    },
+    'time': {
+        keywords: ['time', 'year', 'month', 'week', 'today', 'day', 'daily', 'morning', 'afternoon', 'soon', 'yesterday', 'evening', 'night', 'hour', 'minute'],
+        label: 'time'
+    },
+    'work': {
+        keywords: ['work', 'working', 'lesson', 'job', 'study', 'employment', 'remote', 'university', 'home office', 'homeschooling', 'school', 'math', 'english', 'home school', 'studying', 'college', 'furlough', 'office', 'student', 'teach'],
+        label: 'work'
     },
     'jobs': {
         keywords: [
@@ -103,6 +99,10 @@ const keywordThemes = {
             'part-time', 'full-time', 'colleague', 'employer', 'career', 'profession'
         ],
         label: 'jobs'
+    },
+    'animals': {
+        keywords: ['pet', 'pets', 'mouse','tortoise', 'cow', 'bird','animal', 'animals', 'cat', 'kitten', 'dog', 'dogs', 'jack russell', 'swarm', 'beagle', 'lurcher', 'greyhound', 'saluki', 'fish', 'birds', 'sparrows', 'blackbird', 'larks', 'sheep', 'bee', 'bees', 'parakeets'],
+        label: 'animals'
     }
 };
 

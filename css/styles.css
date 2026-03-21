@@ -219,8 +219,8 @@ button:hover {
 
 /* Keyword Buttons (überschreibt filter-btn) */
 .keyword-btn {
-    background: transparent;
-    color: #1a1a1a;
+    background: #1a1a1a;
+    color: white;
 }
 
 .keyword-btn:hover {
@@ -229,8 +229,14 @@ button:hover {
 }
 
 .keyword-btn.active {
-    background: #1a1a1a;
+    background: #888888;
     color: white;
+}
+
+.keyword-btn-clear {
+    background: white;
+    color: #1a1a1a;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
 }
 
 /* Tag Buttons */
