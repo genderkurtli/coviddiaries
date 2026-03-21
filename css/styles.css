@@ -193,6 +193,18 @@ h1 {
     color: #6f6767;
 }
 
+#keyword-counts {
+    padding: 6px 0 60px;
+    font-size: 13px;
+    color: transparent;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+}
+
+#keyword-counts.active {
+    color: #6f6767;
+}
+
 
 .info-bar a.info-bar-link {
     color: inherit;
@@ -419,6 +431,11 @@ button:hover {
     cursor: crosshair;
     color: #718096;
     font-size: 8px;
+}
+
+/* Pattern Mode */
+body.pattern-mode .diary-text {
+    color: transparent;
 }
 
 /* ═══ MAP TOOLTIP ═══ */

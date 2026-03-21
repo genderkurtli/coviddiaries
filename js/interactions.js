@@ -49,6 +49,23 @@ function renderKeywordButtons() {
         renderDiaries();
     };
     container.appendChild(allBtn);
+
+    // Wortzählung anzeigen wenn Keyword aktiv
+    const countsEl = document.getElementById('keyword-counts');
+    if (currentState.selectedKeyword && countsEl) {
+        const theme = keywordThemes[currentState.selectedKeyword];
+        const fullText = diaryData.map(d => d.text.toLowerCase()).join(' ');
+        const counts = theme.keywords.map(word => {
+            const regex = new RegExp('\\b' + word.toLowerCase() + '\\b', 'g');
+            const n = (fullText.match(regex) || []).length;
+            return { word, n };
+        }).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
+        countsEl.textContent = counts.map(x => `${x.word}: ${x.n}`).join('  |  ');
+        countsEl.classList.add('active');
+    } else if (countsEl) {
+        countsEl.textContent = '.';
+        countsEl.classList.remove('active');
+    }
 }
 
 // ═══ TAG BUTTONS ═══
@@ -130,6 +147,23 @@ function renderTagButtons() {
         container.appendChild(btn);
     });
 
+    // Pattern-Button
+    const patternBtn = document.createElement('button');
+    const isPattern = document.body.classList.contains('pattern-mode');
+    patternBtn.textContent = 'pattern';
+    patternBtn.classList.add('keyword-btn-clear');
+    if (isPattern) patternBtn.style.background = '#1a1a1a', patternBtn.style.color = 'white';
+    patternBtn.onclick = () => {
+        const entering = !document.body.classList.contains('pattern-mode');
+        document.body.classList.toggle('pattern-mode');
+        Object.keys(currentState.tagStates).forEach(t => {
+            currentState.tagStates[t] = entering ? 'highlight' : 'clean';
+        });
+        renderTagButtons();
+        renderDiaries();
+    };
+    container.appendChild(patternBtn);
+
     // Clear-Button — am Ende
     const clearBtn = document.createElement('button');
     clearBtn.textContent = 'clear';
@@ -138,6 +172,7 @@ function renderTagButtons() {
         Object.keys(currentState.tagStates).forEach(t => {
             currentState.tagStates[t] = 'clean';
         });
+        document.body.classList.remove('pattern-mode');
         renderTagButtons();
         renderDiaries();
     };

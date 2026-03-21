@@ -4,8 +4,9 @@ An interactive visualisation of 162 diary entries written on 12 May 2020 for the
 
 ## What you can explore
 
-- **Keywords** — highlight words across all diaries by topic (food, isolation, pandemic, relations, …)
+- **Keywords** — highlight words across all diaries by topic (food, isolation, pandemic, relations, …); shows individual word counts when active
 - **Tags** — colour-coded passages by theme (EMOTIONS, DIGITAL, SCHOOL, EMPLOYMENT, …)
+- **Pattern mode** — hide all text to reveal only the colour pattern of tagged passages across diaries
 - **Locations** — hover over a diary's location to see where in the UK the writer lived
 - **Images** — hover over ▣ to see photographs included in the original entries
 
