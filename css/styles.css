@@ -49,6 +49,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -67,15 +71,15 @@ body {
     z-index: 999;  /* Ganz oben */
 }
 .header-title {
-    font-size: 240px;
+    font-size: clamp(48px, 16vw, 240px);
     font-weight: 550;
     line-height: 1;
     color: #1a1a1a;
 }
 .header-subtitle {
-    font-size: 80px;
+    font-size: clamp(18px, 5.5vw, 80px);
     font-weight: 300;
-    line-height: 1;
+    line-height: 1.15;
     color: #1a1a1a;
 }
 
@@ -94,18 +98,32 @@ body {
 /* ═══ 2. HEADER & CONTROLS ═══ */
 
 #headerContainer {
-    margin-bottom: 1em;
-    padding-left: 20px;
+    padding-left: clamp(12px, 1.5vw, 20px);
     padding-right: 5%;
+    padding-bottom: clamp(30px, 5vw, 80px);
+    padding-top: clamp(8px, 1vw, 15px);
     font-size: 20px;
-    /*background-image: url('../images/background.jpg');
-    background-size: 100% auto;
-    background-position: left top;
-    background-size: contain;
-    background-repeat: no-repeat;*/
     background-color: #f8f6fa;
     color: #020202;
-    min-height: 400px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-link {
+    display: block;
+    font-size: clamp(18px, 5.5vw, 80px);
+    font-weight: 300;
+    line-height: 1;
+    color: #1a1a1a;
+    text-decoration: none;
+    margin-top: auto;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.scroll-link:hover {
+    opacity: 0.5;
 }
 
 h1 {
@@ -121,7 +139,7 @@ h1 {
     align-items: center; /*Vertikale Ausrichtung: Alle Elemente mittig in der Höhe, auch wenn eins höher ist als andere*/
     flex-wrap: wrap; /*Umbruch erlaubt*/
     margin-bottom: 1%;
-    margin-top: 15px;
+    margin-top: clamp(6px, 1vw, 15px);
     justify-content: flex-end; /* Schiebt Flex-Items nach rechts */
     text-align: right; /* Text rechtsbündig */
     font-weight: 400;
@@ -139,7 +157,7 @@ h1 {
     gap: 20px; /*zwischen Element und button*/
     align-items: center;
     /*flex-wrap: wrap;*/
-    margin-bottom: 10px; /*10px zur nächsten Controls-Zeile*/
+    margin-bottom: 60px; /*Abstand zur nächsten Controls-Zeile*/
     /*margin-top: -100px;*/
     justify-content: flex-end; /* ← NEU! Buttons nach rechts */
     padding-right: 5%; /* ← NEU! Abstand vom Rand */
@@ -161,6 +179,7 @@ h1 {
 
 #filterContainer {
     padding-left: 20px;
+    padding-top: 60px;
 }
 
 .header-body {
@@ -171,8 +190,9 @@ h1 {
 .filter-hint {
     padding: 4px 0 8px;
     font-size: 20px;
-    color: rgb(222, 22, 99);
+    color: #6f6767;
 }
+
 
 .info-bar a.info-bar-link {
     color: inherit;
@@ -369,19 +389,19 @@ button:hover {
 .diary-id {
     font-size: 8px;
     font-weight: regular;
-    color: #363536;
+    color: #171717;
 }
 
 .diary-meta {
     font-size: 8px;
-    color: #363536;
+    color: #171717;
     font-weight: normal;
 }
 
 .diary-text {
-    font-size: 3px;
+    font-size: 6px;
     line-height: 1.2;
-    color: #2a0c0c;
+    color: #111111;
 }
 
 .diary-text p {
@@ -445,10 +465,9 @@ button:hover {
 
 #map-dot {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: rgb(222, 22, 99);
-    border: 2px solid white;
+    width: 15px;
+    height: 15px;
+    background:#c4222d;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;

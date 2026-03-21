@@ -101,14 +101,12 @@ function renderTagButtons() {
             btn.style.color = color;
             btn.style.backgroundColor = 'white';
             btn.style.borderWidth = '3px';
-            btn.textContent = tag
-             btn.innerHTML = `${tag} <span>☀</span>`;
+            btn.textContent = tag;
         } else { // clean
             btn.style.backgroundColor = color;
             btn.style.color = 'white';
             btn.style.borderWidth = '2px';
             btn.textContent = tag;
-           btn.innerHTML = `${tag} <span>⏻</span>`;
         }
         
         // Click Handler: Cycle durch States

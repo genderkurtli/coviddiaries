@@ -25,6 +25,9 @@ function runIntroSplash() {
 
     splash.style.display = 'flex';
 
+    // Sicherstellen, dass die Seite oben ist (Browser kann Scroll-Position wiederherstellen)
+    window.scrollTo(0, 0);
+
     // Failsafe
     const failsafe = setTimeout(hideSplash, 20000);
 
